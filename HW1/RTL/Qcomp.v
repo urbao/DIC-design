@@ -4,9 +4,9 @@ module QComp(
     output [1:0]Out
 );
 // zero-comparison for LSB
-assign Out[0]=(Din>5'b00000);
+assign Out[0]=(Din>=0);
 
 // Q-comparison for MSB
-assign Out[1]=(Din>Q);
+assign Out[1]=(Din>=Q);
 
 endmodule

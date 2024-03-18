@@ -5,7 +5,7 @@ module ALU(
     output signed [4:0]Out
 );
 
-// assign value to Out based on Sel signal
+/* assign method to update Out value */
 assign Out=(Sel==2'b00)?(In1+In2):
            (Sel==2'b11)?(In1-In2):
            In1;

@@ -28,6 +28,8 @@ end
 initial begin
     $readmemh("ALU_data.dat",ALU_pattern);
     $readmemh("MAS_2input_data.dat",pattern);
+    // $readmemh("C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU_data.dat",ALU_pattern);
+    // $readmemh("C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input_data.dat",pattern);
     $display("----------------------------------------");
     $display("----------------Stage 1-----------------");
     $display("--------- ALU Simulation Begin ---------");

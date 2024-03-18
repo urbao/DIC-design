@@ -11,6 +11,9 @@ module MAS_2input(
     output signed [3:0]Dout
 );
 
+// store the 5-bit result temporarily
+wire signed [4:0] tmpResult;
+
 /*Write your design here*/
 ALU alu_1(
     .In1(Din1),
@@ -29,7 +32,10 @@ ALU alu_2(
     .In1(TDout),
     .In2(Q),
     .Sel(Tcmp),
-    .Out(Dout)
+    .Out(tmpResult)
 );
+
+// discard the MSB bit and assign final-result to Dout
+assign Dout=tmpResult[3:0];
 
 endmodule
