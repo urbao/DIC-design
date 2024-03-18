@@ -1,9 +1,9 @@
-C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v {1 {vlog -work work -stats=none {C:\Users\User\Desktop\DIC-design\HW1\RTL\ALU.v}
+C:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v {1 {vlog -work work -stats=none {C:\Users\User\Desktop\DIC-design\HW1\RTL\tb.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ALU
+-- Compiling module test
 
 Top level modules:
-	ALU
+	test
 
 } {} {}} C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -12,12 +12,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	MAS_2input
 
-} {} {}} C:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v
+} {} {}} C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module test
+-- Compiling module ALU
 
 Top level modules:
-	test
+	ALU
 
 } {} {}} C:/Users/User/Desktop/DIC-design/HW1/RTL/QComp.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW1/RTL/QComp.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020

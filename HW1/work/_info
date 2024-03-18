@@ -10,25 +10,25 @@ z2
 cModel Technology
 dC:/intelFPGA/20.1
 vALU
-Z0 !s110 1710739427
+Z0 !s110 1710754396
 !i10b 1
 !s100 N`934FO4zOHJh0ilhgn`D3
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-InbTW7Y1MYleASlXM0U<gJ2
+I65S7bK;Y5eA]ODjll_>aj1
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dC:/Users/User/Desktop/DIC-design/HW1
 w1710739419
-8C:\Users\User\Desktop\DIC-design\HW1\RTL\ALU.v
-FC:\Users\User\Desktop\DIC-design\HW1\RTL\ALU.v
-!i122 62
+8C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v
+FC:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v
+!i122 90
 L0 1 13
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1710739427.000000
-!s107 C:\Users\User\Desktop\DIC-design\HW1\RTL\ALU.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\User\Desktop\DIC-design\HW1\RTL\ALU.v|
+Z5 !s108 1710754396.000000
+!s107 C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v|
 !i113 1
 Z6 o-work work
 Z7 tCvgOpt 0
@@ -44,7 +44,7 @@ R3
 w1710738882
 8C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v
 FC:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v
-!i122 63
+!i122 91
 L0 4 38
 R4
 r1
@@ -65,10 +65,10 @@ R1
 IL[EnAdNbMoX<>ASd[@BaR3
 R2
 R3
-w1710738805
+w1710740054
 8C:/Users/User/Desktop/DIC-design/HW1/RTL/QComp.v
 FC:/Users/User/Desktop/DIC-design/HW1/RTL/QComp.v
-!i122 64
+!i122 92
 L0 1 12
 R4
 r1
@@ -84,23 +84,23 @@ n@q@comp
 vtest
 R0
 !i10b 1
-!s100 HnfT^_PACN0dbUMTGkHgE2
+!s100 3z1QZCL;XX2k[oN37<Zej0
 R1
-IZHEjGL[=mW4bPZ<cY22bN3
+Iak_j8ZiTm:Wnz21LKVBj23
 R2
 R3
-w1710731588
-8C:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v
-FC:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v
-!i122 65
-L0 2 168
+w1710754263
+8C:\Users\User\Desktop\DIC-design\HW1\RTL\tb.v
+FC:\Users\User\Desktop\DIC-design\HW1\RTL\tb.v
+!i122 93
+L0 2 170
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v|
+!s107 C:\Users\User\Desktop\DIC-design\HW1\RTL\tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\User\Desktop\DIC-design\HW1\RTL\tb.v|
 !i113 1
 R6
 R7

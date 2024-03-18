@@ -28,8 +28,10 @@ end
 initial begin
     $readmemh("ALU_data.dat",ALU_pattern);
     $readmemh("MAS_2input_data.dat",pattern);
-    // $readmemh("C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU_data.dat",ALU_pattern);
-    // $readmemh("C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input_data.dat",pattern);
+    if(ALU_pattern[0]===20'bx || pattern[0]===24'bx) begin
+        $display("ERROR: Can not read the input file.\n");
+        $finish;
+    end
     $display("----------------------------------------");
     $display("----------------Stage 1-----------------");
     $display("--------- ALU Simulation Begin ---------");
