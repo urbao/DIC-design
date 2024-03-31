@@ -10,97 +10,97 @@ z2
 cModel Technology
 dC:/intelFPGA/20.1
 vALU
-Z0 !s110 1710754396
+Z0 !s110 1711880582
 !i10b 1
-!s100 N`934FO4zOHJh0ilhgn`D3
+!s100 0@k<cIJD83N;jzzAjb^Y93
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I65S7bK;Y5eA]ODjll_>aj1
+I>;@:_f]lP;5nf?FT9kMQj1
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dC:/Users/User/Desktop/DIC-design/HW1
-w1710739419
-8C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v
-FC:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v
-!i122 90
-L0 1 13
-Z4 OV;L;2020.1;71
+Z4 w1711880530
+Z5 8C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v
+Z6 FC:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v
+!i122 0
+L0 29 11
+Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1710754396.000000
-!s107 C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW1/RTL/ALU.v|
+Z8 !s108 1711880581.000000
+Z9 !s107 C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v|
+Z10 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v|
 !i113 1
-Z6 o-work work
-Z7 tCvgOpt 0
+Z11 o-work work
+Z12 tCvgOpt 0
 n@a@l@u
 vMAS_2input
 R0
 !i10b 1
-!s100 izRgn@M@S0zGRRYheM<ii3
+!s100 >kIFFZ?B6=9KInR:@_^>F3
 R1
-IXmZ;@BFEzHF=IT;2Y@b>V1
+I=>il6jNY7LkVNa9VP@2hF0
 R2
 R3
-w1710738882
-8C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v
-FC:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v
-!i122 91
-L0 4 38
 R4
+R5
+R6
+!i122 0
+L0 4 21
+R7
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW1/RTL/MAS_2input.v|
+R8
+R9
+R10
 !i113 1
-R6
-R7
+R11
+R12
 n@m@a@s_2input
 vQComp
 R0
 !i10b 1
-!s100 <=^c=3PC8Kb<GY2nXZSOU0
+!s100 ?6ck2CZzV_[oNYJ74QkLz1
 R1
-IL[EnAdNbMoX<>ASd[@BaR3
+IoE_2@^8Yl_C?c6=@>BoP=0
 R2
 R3
-w1710740054
-8C:/Users/User/Desktop/DIC-design/HW1/RTL/QComp.v
-FC:/Users/User/Desktop/DIC-design/HW1/RTL/QComp.v
-!i122 92
-L0 1 12
 R4
+R5
+R6
+!i122 0
+L0 42 10
+R7
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/User/Desktop/DIC-design/HW1/RTL/QComp.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW1/RTL/QComp.v|
+R8
+R9
+R10
 !i113 1
-R6
-R7
+R11
+R12
 n@q@comp
 vtest
 R0
 !i10b 1
 !s100 3z1QZCL;XX2k[oN37<Zej0
 R1
-Iak_j8ZiTm:Wnz21LKVBj23
+IFB7ZnS:k6<J2Qa]d^^MlY2
 R2
 R3
 w1710754263
-8C:\Users\User\Desktop\DIC-design\HW1\RTL\tb.v
-FC:\Users\User\Desktop\DIC-design\HW1\RTL\tb.v
-!i122 93
+8C:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v
+FC:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v
+!i122 1
 L0 2 170
-R4
+R7
 r1
 !s85 0
 31
-R5
-!s107 C:\Users\User\Desktop\DIC-design\HW1\RTL\tb.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\User\Desktop\DIC-design\HW1\RTL\tb.v|
+!s108 1711880582.000000
+!s107 C:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW1/RTL/tb.v|
 !i113 1
-R6
-R7
+R11
+R12
