@@ -1,0 +1,60 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/User/Desktop/DIC-design/HW1
+vCIPU
+Z0 !s110 1711947839
+!i10b 1
+!s100 `2`EdVj5?_zTD24=JDnXc2
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IP;7A4M8IC`zgPE45]_l9X3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/User/Desktop/DIC-design/HW2
+w1711947718
+8C:/Users/User/Desktop/DIC-design/HW2/RTL/CIPU.v
+FC:/Users/User/Desktop/DIC-design/HW2/RTL/CIPU.v
+!i122 11
+L0 1 23
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1711947838.000000
+!s107 C:/Users/User/Desktop/DIC-design/HW2/RTL/CIPU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW2/RTL/CIPU.v|
+!i113 1
+o-work work
+Z5 tCvgOpt 0
+n@c@i@p@u
+vtextfixture
+DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+R0
+!i10b 1
+!s100 VHSkWoEMWzdSCheLX6SBC0
+R1
+I^EZQMd85Y=5]O]NTWHATK0
+R2
+S1
+R3
+w1711947828
+8C:/Users/User/Desktop/DIC-design/HW2/RTL/tb.sv
+FC:/Users/User/Desktop/DIC-design/HW2/RTL/tb.sv
+!i122 12
+L0 12 273
+R4
+r1
+!s85 0
+31
+!s108 1711947839.000000
+!s107 C:/Users/User/Desktop/DIC-design/HW2/RTL/tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/DIC-design/HW2/RTL/tb.sv|
+!i113 1
+o-work work -sv
+R5
