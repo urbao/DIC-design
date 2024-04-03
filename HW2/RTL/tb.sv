@@ -28,6 +28,9 @@ wire done_lifo;
 wire done_fifo2;
 
 reg ready_wait = 0;
+reg flag1 = 0;
+reg flag2 = 0;
+reg flag3 = 0;
 
 integer people_thing_count = 0;
 integer thing_count = 0;
@@ -117,7 +120,7 @@ always@(posedge clk)begin
     if(valid_fifo)begin
         if(people_thing_count >= 15)begin
             $display("\n");
-            $display("Failed pulling down valid signal, Simulation STOP !!!");
+            $display("Failed pulling down valid_fifo signal, Simulation STOP !!!");
             $display("\n");
             $finish;
         end
@@ -176,7 +179,7 @@ always@(posedge clk)begin
     if(valid_lifo)begin
         if(thing_count >= 25)begin
             $display("\n");
-            $display("!!! Failed pulling down valid signal, Simulation STOP !!!");
+            $display("!!! Failed pulling down valid_lifo signal, Simulation STOP !!!");
             $display("\n");
             $finish;
         end 
@@ -200,7 +203,7 @@ always@(posedge clk)begin
     if(valid_fifo2)begin
         if(thing_fifo2_count >= 10)begin
             $display("\n");
-            $display("!!! Failed pulling down valid signal, Simulation STOP !!!");
+            $display("!!! Failed pulling down valid_fifo2 signal, Simulation STOP !!!");
             $display("\n");
             $finish;
         end
@@ -232,29 +235,57 @@ initial begin
     $display("        **                        **  |^ ^ ^ ^ |w| ");
     $display("        ****************************   \\m___m__|_|");
     $display("\n");
-    $display("!!! Failed waiting valid signal, Simulation STOP !!!");
+    $display("!!! Failed waiting done signal, Simulation STOP !!!");
     $stop;
 end
 
 always@(posedge clk)begin
-    if(done_fifo && done_lifo && done_fifo2)begin
+    if(done_fifo && !flag1)begin
+        if(err1_count == 0 && pass1_count == 15)begin
+            score = score + 40;
+            $display("\n\nThere are total %3d errors in FIFO  !!", 0);
+        end
+        else begin
+            $display("\n\nThere are total %3d errors in FIFO  !!", 15-pass1_count);
+        end
+        flag1 = 1;
+    end
+    if(done_lifo && !flag2)begin
+        if(err2_count == 0 && pass2_count == 25)begin
+            score = score + 30;
+            $display("\n\nThere are total %3d errors in LIFO  !!", 0);
+        end
+        else begin
+            $display("\n\nThere are total %3d errors in LIFO  !!", 25-pass2_count);
+        end
+        flag2 = 1;
+    end
+    if(done_fifo2 && !flag3)begin
+        if(err3_count == 0 && pass3_count == 10)begin
+            score = score + 30;
+            $display("\n\nThere are total %3d errors in FIFO2 !!", 0);
+        end
+        else begin
+            $display("\n\nThere are total %3d errors in FIFO2 !!", 10-pass3_count);
+        end
+        flag3 = 1;
+    end
+        
+    if(flag1 && flag2 && flag3)begin
         if(err1_count == 0 && err2_count == 0 && err3_count == 0 && pass1_count == 15 && pass2_count == 25 && pass3_count == 10) begin // all pattern pass, show info
             $display("\n");
             $display("        ****************************               ");
             $display("        **                        **       |\__||  ");
-            $display("        **  Congratulations !!    **      / O.O  | ");
+            $display("        **  Congratulations!!     **      / O.O  | ");
             $display("        **                        **    /_____   | ");
             $display("        **  Simulation PASS!!     **   /^ ^ ^ \\  |");
             $display("        **                        **  |^ ^ ^ ^ |w| ");
             $display("        ****************************   \\m___m__|_|");
-            calculate_score();
+            $display("\n        Correct / Total : %5d / %3d  " , score, 100);
             $display("\n");
         end
         else begin
             // $display("%d, %d, %d", pass1_count, pass2_count, pass3_count);
-            $display("\n\nThere are total %3d errors in FIFO  !!", 15-pass1_count);
-            $display("\n\nThere are total %3d errors in LIFO  !!", 25-pass2_count);
-            $display("\n\nThere are total %3d errors in FIFO2 !!", 10-pass3_count);
             $display("\n");
             $display("        ****************************               ");
             $display("        **                        **       |\__||  ");
@@ -263,22 +294,12 @@ always@(posedge clk)begin
             $display("        **  Simulation Failed!!   **   /^ ^ ^ \\  |");
             $display("        **                        **  |^ ^ ^ ^ |w| ");
             $display("        ****************************   \\m___m__|_|");
-            calculate_score();
+            $display("\n        Correct / Total : %5d / %3d  " , score, 100);
             $display("\n");
         end
         $finish;
     end
 end
-
-task calculate_score;
-    if(err1_count == 0 && pass1_count == 15)
-        score = score + 40;
-    if(err2_count == 0 && pass2_count == 25)
-        score = score + 30;
-    if(err3_count == 0 && pass3_count == 10)
-        score = score + 30;
-    $display("\n        Correct / Total : %5d / %3d  " , score, 100);
-endtask
 
 endmodule
 
