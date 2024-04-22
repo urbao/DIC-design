@@ -155,7 +155,9 @@ always @(posedge clk)begin
             // ASCII code: `1` -> 8'h31, `9` -> 8'h39
             if(thing_in>=8'h31 && thing_in<=8'h39)begin
                 Luggage[luggage_count] <= thing_in;
+                Remain_Luggage[remain_luggage_count] <= thing_in;
                 luggage_count <= luggage_count+1;
+                remain_luggage_count <= remain_luggage_count+1;
             end
             // when encounter the other symbol, move to nextState(based on the nextState logic)
             if(thing_in==8'h3B || thing_in==8'h24)begin
@@ -176,6 +178,7 @@ always @(posedge clk)begin
                 if(luggage_index<thing_num)begin
                     thing_out <= Luggage[luggage_count-luggage_index-1];
                     luggage_index <= luggage_index+1;
+                    remain_luggage_count <= remain_luggage_count-1;
                 end
                 else begin
                     valid_lifo <= 1'b0;
@@ -202,7 +205,16 @@ always @(posedge clk)begin
             done_lifo <= 1'b0;
             valid_fifo2 <= 1'b1;
             // output FIFO2 result
-
+            if(remain_luggage_index<remain_luggage_count)begin
+                thing_out <= Remain_Luggage[remain_luggage_index];
+                remain_luggage_index <= remain_luggage_index+1;
+            end
+            else begin
+                remain_luggage_count <= 0;
+                remain_luggage_index <= 0;
+                valid_fifo2 <= 1'b0;
+                currState2 <= nextState2;
+            end
         end
         // DONE_FIFO_2 state
         else begin
