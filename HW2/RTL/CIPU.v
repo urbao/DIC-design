@@ -139,10 +139,12 @@ always @(posedge clk)begin
     else begin
         // INIT_2 state: wait for the ready_lifo set to high
         if(currState2==INIT_2)begin
+            done_fifo2 <= 1'b0;
             if(ready_lifo)begin
                 // reset some value before reading data
                 luggage_count <= 0;
                 luggage_index <= 0;
+                remain_luggage_count <= 0;
                 remain_luggage_index <= 0;
                 currState2 <= nextState2;
             end
@@ -184,14 +186,9 @@ always @(posedge clk)begin
         end
         // DONE_THING_2 state: control the done_thing signal
         else if(currState2==DONE_THING_2)begin
-            // save the remaining luggages to Remain_Luggage and reset the parameters value
-            // if(remain_luggage_count<luggage_count-thing_num)begin
-            //     Remain_Luggage[remain_luggage_count] <= Luggage[remain_luggage_count];
-            //     remain_luggage_count <= remain_luggage_count+1;
-            // end
-            luggage_count <= 1'b0;
-            luggage_index <= 1'b0;
-            valid_lifo <= 1'b0;
+            luggage_count <= 0; // reset luggage_count for next sequence
+            luggage_index <= 0; // reset luggage_index for next sequence
+            valid_lifo <= 1'b0; // if zero pop-out case happens, then we can NOT set valid_lifo as high and low in same clock cycle
             done_thing <= 1'b0;
             currState2 <= nextState2;
         end
@@ -202,7 +199,15 @@ always @(posedge clk)begin
         end
         // VALID_FIFO_2 state: start output FIFO_2 result
         else if(currState2==VALID_FIFO_2)begin
-            
+            done_lifo <= 1'b0;
+            valid_fifo2 <= 1'b1;
+            // output FIFO2 result
+
+        end
+        // DONE_FIFO_2 state
+        else begin
+            done_fifo2 <= 1'b1;
+            currState2 <= nextState2;
         end
     end
 end
