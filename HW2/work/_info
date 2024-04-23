@@ -10,28 +10,28 @@ z2
 cModel Technology
 dC:/Users/User/Desktop/DIC-design/HW1
 vCIPU
-Z0 !s110 1713797968
+Z0 !s110 1713873596
 !i10b 1
-!s100 oLOkzfO2lD<9nLHiG95OK1
+!s100 <8[]`L:OzB:oO5T:OEX;i2
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I6QfKXEH68iH0C8@[mHh302
+I[7_nY>AR;>B35bc;4VIGc1
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dC:/Users/User/Desktop/DIC-design/HW2
-w1713797963
+w1713873291
 8C:/Users/User/Desktop/DIC-design/HW2/RTL/CIPU.v
 FC:/Users/User/Desktop/DIC-design/HW2/RTL/CIPU.v
-!i122 351
-L0 1 249
+!i122 443
+L0 1 279
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1713797968.000000
+!s108 1713873595.000000
 !s107 C:/Users/User/Desktop/DIC-design/HW2/RTL/CIPU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW2/RTL/CIPU.v|
 !i113 1
 o-work work
-Z6 tCvgOpt 0
+Z5 tCvgOpt 0
 n@c@i@p@u
 vtextfixture
 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
@@ -46,15 +46,15 @@ R3
 w1712111869
 8C:/Users/User/Desktop/DIC-design/HW2/RTL/tb.sv
 FC:/Users/User/Desktop/DIC-design/HW2/RTL/tb.sv
-!i122 352
+!i122 444
 L0 11 294
 R4
 r1
 !s85 0
 31
-R5
+!s108 1713873596.000000
 !s107 C:/Users/User/Desktop/DIC-design/HW2/RTL/tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/DIC-design/HW2/RTL/tb.sv|
 !i113 1
 o-work work -sv
-R6
+R5

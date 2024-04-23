@@ -24,8 +24,6 @@ Since the FIFO and LIFO data come in at the same time, and the data processing
 technique between them are a slightly different from each other. So, I tried to 
 break the FIFO and LIFO state control into 2 seperated FSMs.
 */
-
-
 /* -----------------PARAMETERD INITIALIZATION-------------------*/
 // people FIFO FSM and related parameters
 parameter [1:0] INIT_1=2'b00,
@@ -46,70 +44,63 @@ parameter [2:0] INIT_2=3'b000,
                 VALID_FIFO_2=3'b101,
                 DONE_FIFO_2=3'b110;
 reg [2:0] currState2, nextState2;
-reg [7:0] Luggage[0:LENGTH-1]; // records the Luggages 
-reg [7:0] Remain_Luggage[0:LENGTH-1]; // records the remaining Luggages after popping out
+reg [7:0] Luggage[0:LENGTH-1]; // records the Luggages status
+reg [7:0] Remain_Luggage[0:LENGTH-1]; // records the remaining Luggages status
 integer luggage_count=0; // record total count of luggages in the sequence
 integer luggage_index=0; // record index of luggages when outputing the LIFO result
 integer remain_luggage_count=0; // record count of remain luggages when save to Remain_Luggage
 integer remain_luggage_index=0; // record index of remain luggages when outputing the FIFO result
 
-
 /*---------------------FIFO CASE----------------------*/
 // currState register
 always @(posedge clk)begin
-    // sync reset operation, reset state to INIT_1
-    // and reset valid and done signal to 0
+    // async reset, reset all output
     if(rst)begin
         valid_fifo <= 1'b0;
         done_fifo <= 1'b0;
         currState1 <= INIT_1;
     end
-    // start consider different state operations
     else begin
-        // INIT_1 state: wait for the ready_fifo set to high, move to READY_1 state
         if(currState1==INIT_1)begin
-            done_fifo <= 0; // after 1 clock cycle from the DONE_1 state, pull down the signal
             if(ready_fifo)begin
-                passenger_count <= 0; // reset passenger_count value
-                passenger_index <= 0; // reset passenger_index value
+                // reset parameters value and move to READY_1 state
+                passenger_count <= 0;
+                passenger_index <= 0;
                 currState1 <= nextState1;
             end
         end
-        // READY_1 state: start reading until encounter end symbol. then move to VALID_1 state
         else if(currState1==READY_1)begin
-            // save only People info(A~Z)
-            // ASCII code: `A` -> 8'h41, `Z` -> 8'h5A
+            // save the People ONLY info
             if(people_thing_in>=8'h41 && people_thing_in<=8'h5A)begin
                 Passenger[passenger_count] <= people_thing_in;
                 passenger_count <= passenger_count+1;
             end
-            // encounter end symbol
-            // ASCII code: `$` -> 8'h24
+            // encounter end symbol, move to VALID_1 state
             if(people_thing_in==8'h24)begin
                 currState1 <= nextState1;
             end
         end
-        // VALID_1 state: enable valid_fifo signal and start output result
         else if(currState1==VALID_1)begin
-            valid_fifo <= 1'b1; // notify the testbench the valid result is outputed
-            // output all passengers one by one
+            // enable valid_fifo signal as soon as output process starts
+            // DON'T enable valid_fifo in `output logic part`, or the signal might 
+            // be triggered earlier than the actual Passenger output comes out
+            // and this will cause the output incorrect!!!
+            valid_fifo <= 1'b1; 
             if(passenger_index<passenger_count)begin
                 people_thing_out <= Passenger[passenger_index];
                 passenger_index <= passenger_index+1;
             end
-            // when all results are outputed, move to DONE_1 state
+            // when finished output result, move to DONE_1 state
             else begin
-                valid_fifo <= 1'b0; // pull down the valid_fifo signal
                 currState1 <= nextState1;
             end
         end
-        // DONE_1 state: enable done_fifo signal, and move to INIT_1 state waiting for next sequence
         else begin
-            done_fifo <= 1'b1; // enable done_fifo signal
+            // move to INIT_1 state
             currState1 <= nextState1;
         end
     end
-end
+end 
 
 // nextState logic
 always @(currState1)begin
@@ -120,9 +111,48 @@ always @(currState1)begin
         DONE_1: nextState1 = INIT_1;
         default: nextState1 = INIT_1;
     endcase
-end
+end 
+
+// output logic
+always @(currState1)begin
+    case(currState1)
+        INIT_1:begin
+            done_fifo = 1'b0;
+            valid_fifo = 1'b0;
+        end
+        READY_1:begin
+            done_fifo = 1'b0;
+            valid_fifo = 1'b0;
+        end
+        VALID_1:begin
+            done_fifo = 1'b0; // valid_fifo is triggered within currState register part
+        end
+        DONE_1:begin
+            valid_fifo = 1'b0;
+            done_fifo = 1'b1; // trigger the done_fifo signal
+        end
+        default:begin
+            valid_fifo = 1'b0;
+            done_fifo = 1'b1;
+        end
+    endcase
+end 
 
 /*---------------------LIFO CASE----------------------*/
+/*
+Idea of Implementing LIFO/FIFO luggage
+### For LIFO:
+    - Use the Luggage array to record the Luggages info each time, then popped out luggages based on thing_num value
+    - luggage_count: used for counting total count of luggages each time
+    - luggage_index: used for popping out the luggages
+
+### For FIFO:
+    - Use Remain_Luggage array to record the luggages info of ALL TIME
+    - when popping out luggages, substract the remain_luggage_count by 1(i.e. meaning a luggage was removed)
+    - remain_luggage_count: used for counting total count of luggages of ALL TIME 
+    - remain_luggage_index: used for output FIFO remain luggages
+*/
+
 // currState register
 always @(posedge clk)begin
     // sync reset operation, reset state to INIT_2
