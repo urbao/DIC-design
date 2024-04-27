@@ -155,7 +155,7 @@ initial begin
 	end
 	total_error = err_cnt;
 	if(err_cnt == 0)begin
-		score = 40;
+		score = score + 40;
 		$display("Pattern 1 pass");
 	end
 	err_cnt = 0;
@@ -239,7 +239,7 @@ initial begin
 	end
 	total_error = total_error + err_cnt;
 	if(err_cnt == 0)begin
-		score = 70;
+		score = score + 30;
 		$display("Pattern 2 pass");
 	end
 	err_cnt = 0;
@@ -323,7 +323,7 @@ initial begin
 	end
 	total_error = total_error + err_cnt;
 	if(err_cnt == 0)begin
-		score = 100;
+		score = score + 30;
 		$display("Pattern 3 pass");
 	end
 
