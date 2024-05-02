@@ -1,7 +1,7 @@
 `timescale 1ns/10ps
 // `define SDFFILE    "../SYN/SET_syn.sdf"    // Modify your sdf file name here
 `define cycle 25.0
-`define terminate_cycle 400000 // Modify your terminate cycle here
+`define terminate_cycle 1000 // Modify your terminate cycle here
 
 
 module testfixture1;
@@ -83,6 +83,8 @@ initial begin
 	for(p = 0; p<total_test; p = p+1) begin
 		mx1_size = shape_mem[shape_mem_index+0] * shape_mem[shape_mem_index+1];
 		mx2_size = shape_mem[shape_mem_index+2] * shape_mem[shape_mem_index+3];
+		$display("mx1_size:", shape_mem[shape_mem_index+0], shape_mem[shape_mem_index+1]);
+		$display("mx2_size:", shape_mem[shape_mem_index+2], shape_mem[shape_mem_index+3]);
 		for (k = 0; k<mx1_size+mx2_size; k = k+1) begin
 			@(negedge clk);
 				#(`cycle/4)	wait(busy == 0);
