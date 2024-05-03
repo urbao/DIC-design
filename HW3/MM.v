@@ -51,13 +51,22 @@ always @(posedge clk)begin
         IDX <= 0;
         // assign accurate currState, so currState signal will not be random
         currState <= MAT1_READ;
-        busy <= 0; // notify testbench to send in_data
     end
     else begin
         // MAT1_READ state: start reading mat1 data
         if(currState==MAT1_READ)begin
+            valid <= 0; // disable valid signal
             if(skipped==0)begin
                 skipped <= 1;
+                // reset variables for another new matrix multiplication
+                row_1 = 0;
+                row_2 = 0;
+                col_1 = 0;
+                col_2 = 0;
+                mat_result = 0;
+                ROW = 0;
+                COL = 0;
+                IDX = 0;
             end
             else begin
                 // first, save in_data to mat1
@@ -84,6 +93,9 @@ always @(posedge clk)begin
             // similar operations like MAT1_READ
             mat2[row_2][col_2] <= in_data;
             if(row_end && col_end)begin
+                // reset variables for next cells of multiplication
+                mat_result = 0;
+                IDX = 0;
                 currState <= nextState;
             end
             else if(col_end)begin
@@ -96,6 +108,7 @@ always @(posedge clk)begin
         end
         // MULTIPLY state: calculate the value of (ROW, COL) in result of mat1 x mat2
         else if(currState==MULTIPLY)begin
+            valid <= 0; // disable valid signal
             // check if the mat1 and mat2 can be multiplied together
             if(col_1!=row_2)begin
                 currState <= nextState;
@@ -134,6 +147,9 @@ always @(posedge clk)begin
                     COL <= COL+2'b01; // move to next column
                 end
             end
+            // reset variables for next cells of multiplication
+            mat_result = 0;
+            IDX = 0;
             currState <= nextState; // move to nextState based on nextState logic
         end
     end
@@ -160,46 +176,9 @@ end
 // output logic
 always @(currState)begin
     case (currState)
-        MAT1_READ:begin
-            busy = 0;
-            valid = 0;
-            // reset variables for another new matrix multiplication
-            row_1 = 0;
-            row_2 = 0;
-            col_1 = 0;
-            col_2 = 0;
-            mat_result = 0;
-            ROW = 0;
-            COL = 0;
-            IDX = 0;
-        end
-        MAT2_READ:begin
-            busy = 0;
-            valid = 0;
-        end
-        MULTIPLY:begin
-            busy = 1;
-            valid = 0;
-            // reset variables for next cells of multiplication
-            mat_result = 0;
-            IDX = 0;
-        end
-        OUTPUT: begin
-            busy = 1;
-        end
-        default: begin
-            busy = 0;
-            valid = 0;
-            // reset variables for another new matrix multiplication
-            row_1 = 0;
-            row_2 = 0;
-            col_1 = 0;
-            col_2 = 0;
-            mat_result = 0;
-            ROW = 0;
-            COL = 0;
-            IDX = 0;
-        end 
+        MULTIPLY: busy = 1;
+        OUTPUT: busy = 1;
+        default: busy = 0;
     endcase
 end
 
