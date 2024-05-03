@@ -22,9 +22,10 @@ And IDX is the index of column of mat1, and index of the row of mat2
 */
 // current calculated cell's row and col index corresponding to result matrix of mat1 x mat2
 reg [1:0] ROW, COL, IDX;
-// matrix definition
-reg [7:0] mat1[0:3][0:3];
-reg [7:0] mat2[0:3][0:3];
+reg skipped=1;
+// matrix definition(the in_data is 8-bit signed)
+reg signed [7:0] mat1[0:3][0:3];
+reg signed [7:0] mat2[0:3][0:3];
 reg signed [19:0] mat_result; // store the multiplication result of mat1 x mat2
 
 /* ======= finite state machine definition ======= */
@@ -55,27 +56,31 @@ always @(posedge clk)begin
     else begin
         // MAT1_READ state: start reading mat1 data
         if(currState==MAT1_READ)begin
-            $display("MAT1:", in_data);
-            // first, save in_data to mat1
-            mat1[row_1][col_1] <= in_data;
-            // secondly, consider update row_1 or col_1
-            // Case 1: input finished for mat1 data
-            if(row_end && col_end)begin
-                currState <= nextState;
+            if(skipped==0)begin
+                skipped <= 1;
             end
-            // Case 2: move to next row
-            else if(col_end)begin
-                row_1 <= row_1+2'b01;
-                col_1 <= 0;
-            end
-            // Case 3: move to next col
             else begin
-                col_1 <= col_1+2'b01;
+                // first, save in_data to mat1
+                mat1[row_1][col_1] <= in_data;
+                // secondly, consider update row_1 or col_1
+                // Case 1: input finished for mat1 data
+                if(row_end && col_end)begin
+                    currState <= nextState;
+                end
+                // Case 2: move to next row
+                else if(col_end)begin
+                    row_1 <= row_1+2'b01;
+                    col_1 <= 0;
+                end
+                // Case 3: move to next col
+                else begin
+                    col_1 <= col_1+2'b01;
+                end
             end
         end
         // MAT2_READ state: start reading mat2 data
         else if(currState==MAT2_READ)begin
-            $display("MAT2:", in_data);
+            skipped <= 0;
             // similar operations like MAT1_READ
             mat2[row_2][col_2] <= in_data;
             if(row_end && col_end)begin
@@ -91,7 +96,6 @@ always @(posedge clk)begin
         end
         // MULTIPLY state: calculate the value of (ROW, COL) in result of mat1 x mat2
         else if(currState==MULTIPLY)begin
-            $display("MULTIPLY:", in_data);
             // check if the mat1 and mat2 can be multiplied together
             if(col_1!=row_2)begin
                 currState <= nextState;
@@ -110,15 +114,14 @@ always @(posedge clk)begin
         end
         // OUTPUT state: output the value of (ROW, COL) in mat1 x mat2 as out_data
         else begin
-            $display("OUTPUT:", in_data);
             // enable valid signal(testbench will check out_data, is_legal, and change_row signal)
             valid <= 1;
             // check if the mat1 and mat2 can be multiplied together
             if(col_1!=row_2)begin
-                is_legal <= 1;
+                is_legal <= 0; // not legal since col_1 is not equal to row_2
             end
             else begin
-                is_legal <= 0;
+                is_legal <= 1;
                 out_data <= mat_result;
                 // check if the change_row signal is needed to be enable
                 if(COL==col_2)begin
