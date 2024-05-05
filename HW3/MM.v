@@ -22,7 +22,15 @@ And IDX is the index of column of mat1, and index of the row of mat2
 */
 // current calculated cell's row and col index corresponding to result matrix of mat1 x mat2
 reg [1:0] ROW, COL, IDX;
-reg skipped=1;
+
+/*
+Since when a new set of matrix data is input, somehow the last in_data will input for another extra cycle
+so the wait_one_cycle signal is used to delay a cycle for reading in_data in MAT1_READ state
+But initially the extra cycle problem is not existed, so wait_one_cycle is set to 0 at first.
+And when the MAT2_READ state occurs, the wait_one_cycle is set back to 1, so the next set of matrix input will need
+to wait for another extra cycle before reading mat1 data
+*/
+reg wait_one_cycle=0;
 // matrix definition(the in_data is 8-bit signed)
 reg signed [7:0] mat1[0:3][0:3];
 reg signed [7:0] mat2[0:3][0:3];
@@ -55,9 +63,10 @@ always @(posedge clk)begin
     else begin
         // MAT1_READ state: start reading mat1 data
         if(currState==MAT1_READ)begin
-            valid <= 0; // disable valid signal
-            if(skipped==0)begin
-                skipped <= 1;
+            valid <= 0; // disable valid signal, no data will be checked by testbench accidentally
+            // wait for another cycle, so no wrong in_data is read
+            if(wait_one_cycle==1)begin
+                wait_one_cycle <= 0;
                 // reset variables for another new matrix multiplication
                 row_1 = 0;
                 row_2 = 0;
@@ -72,7 +81,7 @@ always @(posedge clk)begin
                 // first, save in_data to mat1
                 mat1[row_1][col_1] <= in_data;
                 // secondly, consider update row_1 or col_1
-                // Case 1: input finished for mat1 data
+                // Case 1: input finished for mat1 data, move to nextState
                 if(row_end && col_end)begin
                     currState <= nextState;
                 end
@@ -89,13 +98,10 @@ always @(posedge clk)begin
         end
         // MAT2_READ state: start reading mat2 data
         else if(currState==MAT2_READ)begin
-            skipped <= 0;
+            wait_one_cycle <= 1;
             // similar operations like MAT1_READ
             mat2[row_2][col_2] <= in_data;
             if(row_end && col_end)begin
-                // reset variables for next cells of multiplication
-                mat_result = 0;
-                IDX = 0;
                 currState <= nextState;
             end
             else if(col_end)begin
@@ -147,7 +153,7 @@ always @(posedge clk)begin
                     COL <= COL+2'b01; // move to next column
                 end
             end
-            // reset variables for next cells of multiplication
+            // reset variables for multiplication-related variables
             mat_result = 0;
             IDX = 0;
             currState <= nextState; // move to nextState based on nextState logic

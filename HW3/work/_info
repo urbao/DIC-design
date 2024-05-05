@@ -9,50 +9,73 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/User/Desktop/DIC-design/HW2
-vMM
-Z0 !s110 1714708186
+vhard_block
+Z0 !s110 1714876060
 !i10b 1
-!s100 WGcRF`b[mY5iX9an[2`573
+!s100 TKLleYKJG8BSfkWb9hedb1
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IK6SGPMmgKROELGf]c<^GT0
+IRi]lCbG79AK?2`PK=cO743
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dC:/Users/User/Desktop/DIC-design/HW3
-w1714708114
-8C:/Users/User/Desktop/DIC-design/HW3/MM.v
-FC:/Users/User/Desktop/DIC-design/HW3/MM.v
-!i122 243
-L0 2 205
-Z4 OV;L;2020.1;71
+Z4 w1714875356
+Z5 8C:/Users/User/Desktop/DIC-design/HW3/MM.vo
+Z6 FC:/Users/User/Desktop/DIC-design/HW3/MM.vo
+!i122 341
+L0 13891 34
+Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1714708186.000000
-!s107 C:/Users/User/Desktop/DIC-design/HW3/MM.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW3/MM.v|
+Z8 !s108 1714876060.000000
+!s107 C:/Users/User/Desktop/DIC-design/HW3/MM.vo|
+Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW3/MM.vo|
 !i113 1
-Z6 o-work work
-Z7 tCvgOpt 0
+Z10 o-work work
+Z11 tCvgOpt 0
+vMM
+R0
+!i10b 1
+!s100 SB9AMc:3GXWjIR5nclK?60
+R1
+Img68DN`D2>0gSF]O6Jh2>1
+R2
+R3
+R4
+R5
+R6
+!i122 341
+L0 32 13858
+R7
+r1
+!s85 0
+31
+R8
+Z12 !s107 C:/Users/User/Desktop/DIC-design/HW3/MM.vo|
+R9
+!i113 1
+R10
+R11
 n@m@m
 vtestfixture1
 R0
 !i10b 1
-!s100 oIM>3S6b9MFF>1^HOiajf0
+!s100 K8JGM<01f[N6=JE8>aOeG0
 R1
-IcjlSHODPeJ3J^W[3I22Tm0
+I<[;k`1XNn2zOB@k6AIj3k3
 R2
 R3
-w1714708182
+w1714875758
 8C:/Users/User/Desktop/DIC-design/HW3/testfixture.v
 FC:/Users/User/Desktop/DIC-design/HW3/testfixture.v
-!i122 244
+!i122 340
 L0 7 370
-R4
+R7
 r1
 !s85 0
 31
-R5
+R8
 !s107 C:/Users/User/Desktop/DIC-design/HW3/testfixture.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW3/testfixture.v|
 !i113 1
-R6
-R7
+R10
+R11

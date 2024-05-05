@@ -1,0 +1,7 @@
+
+State Machine - |MM|currState
+Name currState.OUTPUT currState.MULTIPLY currState.MAT2_READ currState.MAT1_READ 
+currState.MAT1_READ 0 0 0 0 
+currState.MAT2_READ 0 0 1 1 
+currState.MULTIPLY 0 1 0 1 
+currState.OUTPUT 1 0 0 1 

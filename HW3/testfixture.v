@@ -1,7 +1,7 @@
 `timescale 1ns/10ps
 // `define SDFFILE    "../SYN/SET_syn.sdf"    // Modify your sdf file name here
-`define cycle 15.0
-`define terminate_cycle 100000 // Modify your terminate cycle here
+`define cycle 23.0
+`define terminate_cycle 400000 // Modify your terminate cycle here
 
 
 module testfixture1;
@@ -156,7 +156,7 @@ initial begin
 	total_error = err_cnt;
 	if(err_cnt == 0)begin
 		score = score + 40;
-		$display("=========================================Pattern 1 pass===================================================");
+		$display("Pattern 1 pass");
 	end
 	err_cnt = 0;
 	k = 0;
@@ -240,7 +240,7 @@ initial begin
 	total_error = total_error + err_cnt;
 	if(err_cnt == 0)begin
 		score = score + 30;
-		$display("=====================================Pattern 2 pass==========================================");
+		$display("Pattern 2 pass");
 	end
 	err_cnt = 0;
 	k = 0;
@@ -324,7 +324,7 @@ initial begin
 	total_error = total_error + err_cnt;
 	if(err_cnt == 0)begin
 		score = score + 30;
-		$display("=============================================Pattern 3 pass====================================================");
+		$display("Pattern 3 pass");
 	end
 
 
