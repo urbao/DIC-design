@@ -13,6 +13,21 @@ output reg change_row,valid,busy;
 /* ======= variables initialization ======= */
 // record the row and col size of mat1 and mat2
 // if mat1 can be multiplied with mat2, the result matrix shape is row_1 x col_2
+/*
+========== Potential Problems for INVALID MAtrix Multiplication ============
+Case 1: If the col_1 is NOT EQUAL TO row_2
+Case 2: Column data count not the same in either mat1 or mat2
+        e.g. if size of col_1 is 3, and the 1st row of mat1 has received 3 inputs, however, the 2nd row of mat1 only receieved 2 inputs or 4 inputs
+
+========== Solutions for the Potential Problems ===========
+Case 1: Just directly checked if the col_1 is EQUAL TO row_2
+Case 2: Use another reg to RECORD the col_size in the first row for both mat1 and mat2
+        Then for the rest of row in the mat1 and mat2, whenever change_row signal is triggered, go check if col_size matchs the col_1 or col_2
+BUT, for Case 2, if the matrix'row is only 1, then there's no possibility that the column components count in different rows is different
+SO, if row_1==0 or row_2==0, then in the last row check before jumping to nextState, no need to check the MAT_COL_SIZE 
+*/
+reg [1:0] MAT_COL_SIZE; // used to check if the components' count is the same in each row for mat1 and mat2
+reg VALID_MATRIX; // used to record if the matrix multiplication is valid, 1 means valid, 0 means NO valid
 reg [1:0] row_1, col_1, row_2, col_2;
 /*
 When computing the element at the ii-th row and jj-th column of the resulting matrix,
@@ -49,6 +64,8 @@ always @(posedge clk or posedge rst)begin
     // active-high async reset operation
     if(rst)begin
         // reset variables' value
+        MAT_COL_SIZE <= 0;
+        VALID_MATRIX <= 1; // default to valid operation
         row_1 <= 0;
         row_2 <= 0;
         col_1 <= 0;
@@ -68,14 +85,16 @@ always @(posedge clk or posedge rst)begin
             if(wait_one_cycle==1)begin
                 wait_one_cycle <= 0;
                 // reset variables for another new matrix multiplication
-                row_1 = 0;
-                row_2 = 0;
-                col_1 = 0;
-                col_2 = 0;
-                mat_result = 0;
-                ROW = 0;
-                COL = 0;
-                IDX = 0;
+                MAT_COL_SIZE <= 0;
+                VALID_MATRIX <= 1; // default to valid operation
+                row_1 <= 0;
+                row_2 <= 0;
+                col_1 <= 0;
+                col_2 <= 0;
+                mat_result <= 0;
+                ROW <= 0;
+                COL <= 0;
+                IDX <= 0;
             end
             else begin
                 // first, save in_data to mat1
@@ -83,10 +102,25 @@ always @(posedge clk or posedge rst)begin
                 // secondly, consider update row_1 or col_1
                 // Case 1: input finished for mat1 data, move to nextState
                 if(row_end && col_end)begin
+                    // check if the matrix column count match for the last line
+                    // if there's only 1 row in the mat1, no need to check MAT_COL_SIZE
+                    if(col_1!=MAT_COL_SIZE && row_1!=0)begin
+                        VALID_MATRIX <= 0;
+                    end
                     currState <= nextState;
                 end
                 // Case 2: move to next row
                 else if(col_end)begin
+                    // save the matrix column size of 1st row
+                    if(row_1==0)begin
+                        MAT_COL_SIZE <= col_1;
+                    end
+                    // check if matrix column count match for other rows
+                    else begin
+                        if(col_1!=MAT_COL_SIZE)begin
+                            VALID_MATRIX <= 0; // mark as invalid since column components count not matched
+                        end
+                    end
                     row_1 <= row_1+2'b01;
                     col_1 <= 0;
                 end
@@ -102,9 +136,23 @@ always @(posedge clk or posedge rst)begin
             // similar operations like MAT1_READ
             mat2[row_2][col_2] <= in_data;
             if(row_end && col_end)begin
+                // check if the matrix column count match for the last line
+                if(col_2!=MAT_COL_SIZE && row_2!=0)begin
+                    VALID_MATRIX <= 0;
+                end
                 currState <= nextState;
             end
             else if(col_end)begin
+                // save the matrix column size of 1st row
+                if(row_2==0)begin
+                    MAT_COL_SIZE <= col_2;
+                end
+                // check if matrix column count match for other rows
+                else begin
+                    if(col_2!=MAT_COL_SIZE)begin
+                        VALID_MATRIX <= 0; // mark as invalid since column components count not matched
+                    end
+                end
                 row_2 <= row_2+2'b01;
                 col_2 <= 0;
             end
@@ -116,7 +164,8 @@ always @(posedge clk or posedge rst)begin
         else if(currState==MULTIPLY)begin
             valid <= 0; // disable valid signal
             // check if the mat1 and mat2 can be multiplied together
-            if(col_1!=row_2)begin
+            // consider 2 different case listed in line 17~25
+            if(col_1!=row_2 || VALID_MATRIX==0)begin
                 currState <= nextState;
             end
             else begin
@@ -136,7 +185,7 @@ always @(posedge clk or posedge rst)begin
             // enable valid signal(testbench will check out_data, is_legal, and change_row signal)
             valid <= 1;
             // check if the mat1 and mat2 can be multiplied together
-            if(col_1!=row_2)begin
+            if(col_1!=row_2 || VALID_MATRIX==0)begin
                 is_legal <= 0; // not legal since col_1 is not equal to row_2
             end
             else begin
@@ -171,7 +220,7 @@ always @(*)begin
             // Case 1: if the matrices are not multiplicable, then continue reading next mat1 input
             // Case 2: if the matrix is completed output, then start reading next mat1 input
             // Case 3: if the matrix is not done with output, then go back MULTIPLY and continue calculating
-            if(col_1!=row_2)nextState = MAT1_READ;
+            if(col_1!=row_2 || VALID_MATRIX==0)nextState = MAT1_READ;
             else if(ROW==row_1 && COL==col_2)nextState = MAT1_READ;
             else nextState = MULTIPLY; 
         end
