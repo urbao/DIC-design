@@ -45,8 +45,8 @@ reg [1:0] currState, nextState;
 
 /*------------------Main Code---------------------*/
 // currState register
-always @(posedge clk)begin
-    // async reset operation
+always @(posedge clk or posedge rst)begin
+    // active-high async reset operation
     if(rst)begin
         // reset variables' value
         row_1 <= 0;
