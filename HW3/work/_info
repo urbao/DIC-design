@@ -8,25 +8,25 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dC:/Users/User/Desktop/DIC-design/HW2
+dC:/intelFPGA/20.1
 vhard_block
-Z0 !s110 1714876060
+Z0 !s110 1715082489
 !i10b 1
-!s100 TKLleYKJG8BSfkWb9hedb1
+!s100 eQ7_ElC;C?k5;@L0PGRA>2
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IRi]lCbG79AK?2`PK=cO743
+I6QD`iYXL4C]onT<4eNa672
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dC:/Users/User/Desktop/DIC-design/HW3
-Z4 w1714875356
+Z4 w1715082413
 Z5 8C:/Users/User/Desktop/DIC-design/HW3/MM.vo
 Z6 FC:/Users/User/Desktop/DIC-design/HW3/MM.vo
-!i122 341
-L0 13891 34
+!i122 32
+L0 14288 34
 Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1714876060.000000
+Z8 !s108 1715082489.000000
 !s107 C:/Users/User/Desktop/DIC-design/HW3/MM.vo|
 Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW3/MM.vo|
 !i113 1
@@ -35,16 +35,16 @@ Z11 tCvgOpt 0
 vMM
 R0
 !i10b 1
-!s100 SB9AMc:3GXWjIR5nclK?60
+!s100 ee0<MFTfl3<f9U^QN[EBn2
 R1
-Img68DN`D2>0gSF]O6Jh2>1
+Ilz8KXD8LFAL]OU3BVz`<[2
 R2
 R3
 R4
 R5
 R6
-!i122 341
-L0 32 13858
+!i122 32
+L0 32 14255
 R7
 r1
 !s85 0
@@ -59,15 +59,15 @@ n@m@m
 vtestfixture1
 R0
 !i10b 1
-!s100 K8JGM<01f[N6=JE8>aOeG0
+!s100 WHzQ4I9D68DW<WoHPkgZk3
 R1
-I<[;k`1XNn2zOB@k6AIj3k3
+I49j8=O7Rb[A:@KYV^9h413
 R2
 R3
-w1714875758
+R4
 8C:/Users/User/Desktop/DIC-design/HW3/testfixture.v
 FC:/Users/User/Desktop/DIC-design/HW3/testfixture.v
-!i122 340
+!i122 31
 L0 7 370
 R7
 r1

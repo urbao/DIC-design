@@ -1,5 +1,5 @@
 Timing Analyzer report for MM
-Sun May 05 10:15:53 2024
+Tue May 07 18:28:02 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -104,7 +104,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-10        ;   1.5%      ;
+;     Processor 2            ;   2.1%      ;
+;     Processors 3-10        ;   1.4%      ;
 +----------------------------+-------------+
 
 
@@ -122,7 +123,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------+-----------------+------------+------+
 ; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
 +-----------+-----------------+------------+------+
-; 93.75 MHz ; 93.75 MHz       ; clk        ;      ;
+; 93.83 MHz ; 93.83 MHz       ; clk        ;      ;
 +-----------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -138,7 +139,7 @@ HTML report is unavailable in plain text report export.
 +-------+--------+---------------------+
 ; Clock ; Slack  ; End Point TNS       ;
 +-------+--------+---------------------+
-; clk   ; -9.667 ; -1095.465           ;
+; clk   ; -9.658 ; -1124.738           ;
 +-------+--------+---------------------+
 
 
@@ -168,7 +169,7 @@ No paths to report.
 +-------+--------+-----------------------------------+
 ; Clock ; Slack  ; End Point TNS                     ;
 +-------+--------+-----------------------------------+
-; clk   ; -3.000 ; -475.866                          ;
+; clk   ; -3.000 ; -480.327                          ;
 +-------+--------+-----------------------------------+
 
 
@@ -177,106 +178,106 @@ No paths to report.
 +--------+-----------+----------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node ; To Node        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------+----------------+--------------+-------------+--------------+------------+------------+
-; -9.667 ; IDX[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.587     ;
-; -9.662 ; ROW[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.578     ;
-; -9.623 ; ROW[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.539     ;
-; -9.622 ; COL[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.532     ;
-; -9.527 ; IDX[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.447     ;
-; -9.522 ; ROW[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.438     ;
-; -9.516 ; IDX[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.436     ;
-; -9.511 ; ROW[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.427     ;
-; -9.483 ; ROW[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.399     ;
-; -9.482 ; COL[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.392     ;
-; -9.472 ; ROW[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.388     ;
-; -9.471 ; COL[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.381     ;
-; -9.454 ; COL[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.364     ;
-; -9.418 ; IDX[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.338     ;
-; -9.387 ; IDX[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.307     ;
-; -9.382 ; ROW[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.298     ;
-; -9.376 ; IDX[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.296     ;
-; -9.371 ; ROW[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.287     ;
-; -9.343 ; ROW[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.259     ;
-; -9.342 ; COL[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.252     ;
-; -9.332 ; ROW[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.248     ;
-; -9.331 ; COL[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.241     ;
-; -9.314 ; COL[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.224     ;
-; -9.303 ; COL[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.213     ;
-; -9.299 ; mat1~67   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.079     ; 10.217     ;
-; -9.278 ; IDX[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.198     ;
-; -9.267 ; IDX[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.187     ;
-; -9.247 ; IDX[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.167     ;
-; -9.242 ; ROW[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.158     ;
-; -9.236 ; IDX[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.156     ;
-; -9.231 ; ROW[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.147     ;
-; -9.203 ; ROW[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.119     ;
-; -9.202 ; COL[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.112     ;
-; -9.192 ; ROW[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.108     ;
-; -9.191 ; COL[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.101     ;
-; -9.174 ; COL[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.084     ;
-; -9.171 ; mat1~94   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.075     ; 10.093     ;
-; -9.163 ; COL[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.073     ;
-; -9.162 ; mat1~20   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.079     ; 10.080     ;
-; -9.159 ; mat1~67   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.079     ; 10.077     ;
-; -9.154 ; mat1~108  ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.071     ;
-; -9.148 ; mat1~67   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.079     ; 10.066     ;
-; -9.138 ; IDX[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.058     ;
-; -9.127 ; IDX[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.047     ;
-; -9.127 ; mat1~46   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.043     ;
-; -9.118 ; mat1~10   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.035     ;
-; -9.107 ; IDX[0]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.027     ;
-; -9.107 ; mat1~51   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.027     ;
-; -9.102 ; ROW[1]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.018     ;
-; -9.096 ; IDX[0]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.016     ;
-; -9.091 ; ROW[1]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.007     ;
-; -9.073 ; mat1~38   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.082     ; 9.988      ;
-; -9.067 ; mat1~52   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.981      ;
-; -9.063 ; ROW[0]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.979      ;
-; -9.062 ; COL[0]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.087     ; 9.972      ;
-; -9.052 ; ROW[0]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.968      ;
-; -9.051 ; COL[0]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.087     ; 9.961      ;
-; -9.037 ; mat1~86   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.076     ; 9.958      ;
-; -9.034 ; COL[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.087     ; 9.944      ;
-; -9.031 ; mat1~94   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.075     ; 9.953      ;
-; -9.029 ; mat1~48   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.943      ;
-; -9.023 ; COL[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.087     ; 9.933      ;
-; -9.022 ; mat1~20   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.940      ;
-; -9.020 ; mat1~94   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.075     ; 9.942      ;
-; -9.019 ; mat1~67   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.937      ;
-; -9.014 ; mat1~44   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.928      ;
-; -9.014 ; mat1~108  ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.931      ;
-; -9.013 ; mat1~35   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.082     ; 9.928      ;
-; -9.011 ; mat1~20   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.929      ;
-; -9.008 ; mat1~67   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.926      ;
-; -9.003 ; mat1~108  ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.920      ;
-; -8.998 ; IDX[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.918      ;
-; -8.990 ; mat1~89   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.075     ; 9.912      ;
-; -8.987 ; IDX[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.907      ;
-; -8.987 ; mat1~46   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.903      ;
-; -8.981 ; mat2~87   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.088     ; 9.890      ;
-; -8.980 ; mat1~47   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.896      ;
-; -8.978 ; mat1~10   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.895      ;
-; -8.976 ; mat1~46   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.892      ;
-; -8.974 ; mat1~73   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.076     ; 9.895      ;
-; -8.967 ; mat1~51   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.887      ;
-; -8.967 ; mat1~10   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.884      ;
-; -8.965 ; IDX[0]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.075     ; 9.887      ;
-; -8.960 ; ROW[1]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.878      ;
-; -8.956 ; IDX[0]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.876      ;
-; -8.956 ; mat1~51   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.876      ;
-; -8.956 ; mat1~79   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.076     ; 9.877      ;
-; -8.951 ; ROW[1]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.867      ;
-; -8.936 ; mat1~104  ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.853      ;
-; -8.933 ; mat1~38   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.082     ; 9.848      ;
-; -8.932 ; mat1~39   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.082     ; 9.847      ;
-; -8.927 ; mat1~52   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.841      ;
-; -8.922 ; mat1~38   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.082     ; 9.837      ;
-; -8.921 ; ROW[0]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.839      ;
-; -8.920 ; COL[0]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.085     ; 9.832      ;
-; -8.916 ; mat1~52   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.830      ;
-; -8.912 ; ROW[0]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.828      ;
-; -8.911 ; COL[0]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.087     ; 9.821      ;
-; -8.905 ; mat1~93   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.075     ; 9.827      ;
-; -8.899 ; mat1~76   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.076     ; 9.820      ;
+; -9.658 ; ROW[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.575     ;
+; -9.558 ; ROW[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.475     ;
+; -9.518 ; ROW[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.435     ;
+; -9.487 ; IDX[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.403     ;
+; -9.418 ; ROW[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.335     ;
+; -9.403 ; mat1~10   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.316     ;
+; -9.391 ; ROW[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.304     ;
+; -9.387 ; IDX[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.303     ;
+; -9.378 ; ROW[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.295     ;
+; -9.347 ; IDX[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.263     ;
+; -9.314 ; mat1~59   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.082     ; 10.229     ;
+; -9.303 ; mat1~10   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.216     ;
+; -9.299 ; COL[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.216     ;
+; -9.291 ; ROW[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.204     ;
+; -9.285 ; mat1~45   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.079     ; 10.203     ;
+; -9.278 ; ROW[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.195     ;
+; -9.263 ; mat1~10   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.176     ;
+; -9.251 ; ROW[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.164     ;
+; -9.247 ; IDX[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.163     ;
+; -9.243 ; IDX[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.159     ;
+; -9.238 ; ROW[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.155     ;
+; -9.227 ; COL[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.144     ;
+; -9.216 ; mat1~85   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.136     ;
+; -9.214 ; mat1~59   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.082     ; 10.129     ;
+; -9.207 ; IDX[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.123     ;
+; -9.199 ; COL[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.116     ;
+; -9.185 ; mat1~45   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.079     ; 10.103     ;
+; -9.183 ; mat1~86   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.103     ;
+; -9.182 ; mat1~87   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.102     ;
+; -9.174 ; mat1~59   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.082     ; 10.089     ;
+; -9.172 ; mat1~81   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.092     ;
+; -9.163 ; mat1~10   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.076     ;
+; -9.159 ; COL[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.076     ;
+; -9.156 ; mat1~2    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.072     ;
+; -9.151 ; ROW[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.064     ;
+; -9.145 ; mat1~45   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.079     ; 10.063     ;
+; -9.143 ; IDX[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.059     ;
+; -9.138 ; ROW[1]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.055     ;
+; -9.128 ; mat1~16   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.085     ; 10.040     ;
+; -9.127 ; COL[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.044     ;
+; -9.123 ; mat1~10   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.036     ;
+; -9.116 ; mat1~85   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.036     ;
+; -9.111 ; ROW[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.084     ; 10.024     ;
+; -9.108 ; mat1~52   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.085     ; 10.020     ;
+; -9.107 ; IDX[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.023     ;
+; -9.103 ; IDX[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.081     ; 10.019     ;
+; -9.099 ; mat1~47   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.079     ; 10.017     ;
+; -9.098 ; ROW[1]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.015     ;
+; -9.090 ; mat1~89   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 10.004     ;
+; -9.087 ; COL[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.080     ; 10.004     ;
+; -9.083 ; mat1~86   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.003     ;
+; -9.082 ; mat1~87   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.077     ; 10.002     ;
+; -9.076 ; mat1~85   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.996      ;
+; -9.075 ; mat1~82   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.075     ; 9.997      ;
+; -9.074 ; mat1~59   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.082     ; 9.989      ;
+; -9.073 ; mat1~94   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.987      ;
+; -9.072 ; mat1~81   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.992      ;
+; -9.067 ; IDX[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.983      ;
+; -9.059 ; COL[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.976      ;
+; -9.056 ; mat1~2    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.972      ;
+; -9.045 ; mat1~45   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.963      ;
+; -9.043 ; mat1~86   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.963      ;
+; -9.042 ; mat1~87   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.962      ;
+; -9.034 ; mat1~59   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.082     ; 9.949      ;
+; -9.033 ; mat1~42   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.951      ;
+; -9.032 ; mat1~81   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.952      ;
+; -9.030 ; mat1~48   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.085     ; 9.942      ;
+; -9.028 ; mat1~16   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.085     ; 9.940      ;
+; -9.023 ; mat1~10   ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.084     ; 9.936      ;
+; -9.019 ; COL[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.936      ;
+; -9.016 ; mat1~2    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.932      ;
+; -9.011 ; ROW[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.084     ; 9.924      ;
+; -9.008 ; mat1~52   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.085     ; 9.920      ;
+; -9.005 ; mat1~45   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.923      ;
+; -9.004 ; mat1~77   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.922      ;
+; -9.003 ; IDX[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.919      ;
+; -9.002 ; mat1~83   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.922      ;
+; -9.001 ; mat1~95   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.915      ;
+; -8.999 ; mat1~47   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.917      ;
+; -8.998 ; ROW[1]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.915      ;
+; -8.994 ; mat1~93   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.908      ;
+; -8.990 ; mat1~89   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.904      ;
+; -8.988 ; mat1~16   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.085     ; 9.900      ;
+; -8.987 ; COL[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.904      ;
+; -8.983 ; mat1~10   ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.084     ; 9.896      ;
+; -8.976 ; mat1~85   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.896      ;
+; -8.975 ; mat1~82   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.075     ; 9.897      ;
+; -8.973 ; mat1~94   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.887      ;
+; -8.971 ; ROW[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.084     ; 9.884      ;
+; -8.968 ; mat1~41   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.886      ;
+; -8.968 ; mat1~52   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.085     ; 9.880      ;
+; -8.967 ; IDX[1]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.883      ;
+; -8.964 ; mat1~51   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.085     ; 9.876      ;
+; -8.963 ; IDX[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.081     ; 9.879      ;
+; -8.959 ; mat1~47   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.877      ;
+; -8.956 ; ROW[1]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.078     ; 9.875      ;
+; -8.953 ; mat1~40   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.871      ;
+; -8.950 ; mat1~89   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.083     ; 9.864      ;
+; -8.947 ; COL[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.080     ; 9.864      ;
+; -8.943 ; mat1~86   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.077     ; 9.863      ;
 +--------+-----------+----------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -285,106 +286,106 @@ No paths to report.
 +-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node           ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; 0.425 ; is_legal~reg0       ; is_legal~reg0       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
+; 0.425 ; valid~reg0          ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
+; 0.425 ; currState.MAT1_READ ; currState.MAT1_READ ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
+; 0.425 ; ROW[0]              ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
 ; 0.425 ; ROW[1]              ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
-; 0.425 ; row_1[1]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
 ; 0.425 ; COL[1]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
+; 0.425 ; VALID_MATRIX        ; VALID_MATRIX        ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
 ; 0.425 ; col_2[1]            ; col_2[1]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
 ; 0.425 ; row_2[1]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
-; 0.426 ; is_legal~reg0       ; is_legal~reg0       ; clk          ; clk         ; 0.000        ; 0.077      ; 0.692      ;
-; 0.426 ; valid~reg0          ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.077      ; 0.692      ;
-; 0.426 ; IDX[1]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.077      ; 0.692      ;
-; 0.426 ; ROW[0]              ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.078      ; 0.693      ;
-; 0.426 ; row_1[0]            ; row_1[0]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.693      ;
-; 0.426 ; col_2[0]            ; col_2[0]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.693      ;
+; 0.425 ; row_2[0]            ; row_2[0]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
+; 0.425 ; row_1[0]            ; row_1[0]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
+; 0.425 ; IDX[1]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
+; 0.425 ; wait_one_cycle      ; wait_one_cycle      ; clk          ; clk         ; 0.000        ; 0.078      ; 0.692      ;
 ; 0.426 ; COL[0]              ; COL[0]              ; clk          ; clk         ; 0.000        ; 0.078      ; 0.693      ;
-; 0.426 ; row_2[0]            ; row_2[0]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.693      ;
-; 0.426 ; wait_one_cycle      ; wait_one_cycle      ; clk          ; clk         ; 0.000        ; 0.077      ; 0.692      ;
-; 0.426 ; col_1[0]            ; col_1[0]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.693      ;
-; 0.427 ; IDX[0]              ; IDX[0]              ; clk          ; clk         ; 0.000        ; 0.077      ; 0.693      ;
-; 0.449 ; mat_result[2]       ; out_data[2]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.716      ;
-; 0.451 ; mat_result[16]      ; out_data[16]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.718      ;
-; 0.451 ; mat_result[15]      ; out_data[15]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.718      ;
-; 0.451 ; mat_result[6]       ; out_data[6]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.718      ;
+; 0.426 ; col_2[0]            ; col_2[0]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.693      ;
+; 0.426 ; row_1[1]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.077      ; 0.692      ;
+; 0.426 ; IDX[0]              ; IDX[0]              ; clk          ; clk         ; 0.000        ; 0.078      ; 0.693      ;
+; 0.426 ; col_1[1]            ; col_1[1]            ; clk          ; clk         ; 0.000        ; 0.077      ; 0.692      ;
+; 0.427 ; col_1[0]            ; col_1[0]            ; clk          ; clk         ; 0.000        ; 0.077      ; 0.693      ;
+; 0.451 ; mat_result[3]       ; out_data[3]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.718      ;
+; 0.465 ; mat_result[18]      ; out_data[18]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.732      ;
+; 0.467 ; mat_result[13]      ; out_data[13]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.734      ;
+; 0.467 ; mat_result[11]      ; out_data[11]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.734      ;
 ; 0.467 ; mat_result[10]      ; out_data[10]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.734      ;
-; 0.467 ; mat_result[8]       ; out_data[8]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.734      ;
-; 0.468 ; mat_result[11]      ; out_data[11]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.735      ;
-; 0.484 ; row_1[0]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.078      ; 0.751      ;
-; 0.574 ; mat_result[14]      ; out_data[14]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.841      ;
-; 0.590 ; mat_result[1]       ; out_data[1]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.857      ;
+; 0.468 ; mat_result[8]       ; out_data[8]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.735      ;
+; 0.491 ; IDX[0]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.078      ; 0.758      ;
+; 0.574 ; mat_result[1]       ; out_data[1]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.841      ;
+; 0.576 ; mat_result[14]      ; out_data[14]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.843      ;
+; 0.576 ; mat_result[7]       ; out_data[7]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.843      ;
+; 0.590 ; mat_result[17]      ; out_data[17]~reg0   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.857      ;
+; 0.590 ; mat_result[9]       ; out_data[9]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.857      ;
+; 0.590 ; currState.OUTPUT    ; currState.MULTIPLY  ; clk          ; clk         ; 0.000        ; 0.078      ; 0.857      ;
 ; 0.591 ; mat_result[5]       ; out_data[5]~reg0    ; clk          ; clk         ; 0.000        ; 0.078      ; 0.858      ;
-; 0.662 ; mat_result[6]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.929      ;
-; 0.663 ; mat_result[16]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.078      ; 0.930      ;
+; 0.638 ; col_1[1]            ; MAT_COL_SIZE[1]     ; clk          ; clk         ; 0.000        ; 0.078      ; 0.905      ;
+; 0.642 ; currState.MAT1_READ ; currState.MAT2_READ ; clk          ; clk         ; 0.000        ; 0.078      ; 0.909      ;
+; 0.662 ; mat_result[7]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.929      ;
 ; 0.663 ; mat_result[14]      ; mat_result[14]      ; clk          ; clk         ; 0.000        ; 0.078      ; 0.930      ;
-; 0.664 ; mat_result[15]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.078      ; 0.931      ;
-; 0.664 ; mat_result[2]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.931      ;
-; 0.669 ; currState.MULTIPLY  ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.077      ; 0.935      ;
-; 0.676 ; mat_result[7]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.943      ;
+; 0.666 ; mat_result[3]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.933      ;
+; 0.666 ; mat_result[1]       ; mat_result[1]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.933      ;
+; 0.676 ; mat_result[6]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.943      ;
 ; 0.677 ; mat_result[4]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.944      ;
-; 0.681 ; mat_result[3]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.948      ;
-; 0.681 ; currState.MAT2_READ ; currState.MULTIPLY  ; clk          ; clk         ; 0.000        ; 0.078      ; 0.948      ;
+; 0.678 ; mat_result[16]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.078      ; 0.945      ;
+; 0.678 ; mat_result[15]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.078      ; 0.945      ;
+; 0.678 ; mat_result[2]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.078      ; 0.945      ;
 ; 0.684 ; mat_result[19]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.078      ; 0.951      ;
-; 0.719 ; IDX[0]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.077      ; 0.985      ;
-; 0.728 ; ROW[0]              ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.078      ; 0.995      ;
-; 0.756 ; col_2[0]            ; col_2[1]            ; clk          ; clk         ; 0.000        ; 0.078      ; 1.023      ;
-; 0.785 ; COL[0]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.078      ; 1.052      ;
-; 0.821 ; mat_result[9]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.088      ;
-; 0.829 ; row_2[0]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.078      ; 1.096      ;
+; 0.695 ; row_1[0]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.077      ; 0.961      ;
+; 0.712 ; currState.MAT2_READ ; currState.MULTIPLY  ; clk          ; clk         ; 0.000        ; 0.078      ; 0.979      ;
+; 0.740 ; COL[0]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.078      ; 1.007      ;
+; 0.745 ; currState.MAT1_READ ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.078      ; 1.012      ;
+; 0.749 ; col_2[0]            ; col_2[1]            ; clk          ; clk         ; 0.000        ; 0.078      ; 1.016      ;
+; 0.761 ; currState.MAT1_READ ; VALID_MATRIX        ; clk          ; clk         ; 0.000        ; 0.078      ; 1.028      ;
+; 0.781 ; col_1[0]            ; col_1[1]            ; clk          ; clk         ; 0.000        ; 0.077      ; 1.047      ;
+; 0.782 ; currState.OUTPUT    ; currState.MAT1_READ ; clk          ; clk         ; 0.000        ; 0.078      ; 1.049      ;
+; 0.837 ; mat_result[9]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.104      ;
 ; 0.838 ; mat_result[12]      ; mat_result[12]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.105      ;
 ; 0.845 ; mat_result[18]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.112      ;
 ; 0.846 ; mat_result[8]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.113      ;
-; 0.847 ; mat_result[1]       ; mat_result[1]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.114      ;
+; 0.852 ; mat_result[17]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.119      ;
 ; 0.852 ; mat_result[0]       ; mat_result[0]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.119      ;
-; 0.990 ; mat_result[15]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.257      ;
-; 0.992 ; currState.MAT1_READ ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.077      ; 1.258      ;
-; 0.996 ; wait_one_cycle      ; col_1[1]            ; clk          ; clk         ; 0.000        ; 0.077      ; 1.262      ;
-; 1.002 ; mat_result[7]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.269      ;
-; 1.006 ; mat_result[3]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.273      ;
-; 1.007 ; mat_result[16]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.274      ;
-; 1.007 ; COL[0]              ; change_row~reg0     ; clk          ; clk         ; 0.000        ; 0.079      ; 1.275      ;
-; 1.008 ; mat_result[16]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.275      ;
-; 1.012 ; mat_result[6]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.279      ;
+; 0.897 ; col_1[0]            ; MAT_COL_SIZE[0]     ; clk          ; clk         ; 0.000        ; 0.078      ; 1.164      ;
+; 0.933 ; mat_result[12]      ; out_data[12]~reg0   ; clk          ; clk         ; 0.000        ; 0.087      ; 1.209      ;
+; 0.937 ; mat_result[6]       ; out_data[6]~reg0    ; clk          ; clk         ; 0.000        ; 0.085      ; 1.211      ;
+; 0.940 ; currState.MULTIPLY  ; IDX[0]              ; clk          ; clk         ; 0.000        ; 0.075      ; 1.204      ;
+; 0.944 ; mat_result[2]       ; out_data[2]~reg0    ; clk          ; clk         ; 0.000        ; 0.085      ; 1.218      ;
+; 0.946 ; mat_result[4]       ; out_data[4]~reg0    ; clk          ; clk         ; 0.000        ; 0.085      ; 1.220      ;
+; 0.948 ; currState.MAT2_READ ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.074      ; 1.211      ;
+; 0.949 ; currState.MULTIPLY  ; currState.OUTPUT    ; clk          ; clk         ; 0.000        ; 0.078      ; 1.216      ;
+; 0.966 ; mat_result[16]      ; out_data[16]~reg0   ; clk          ; clk         ; 0.000        ; 0.087      ; 1.242      ;
+; 0.969 ; mat_result[0]       ; out_data[0]~reg0    ; clk          ; clk         ; 0.000        ; 0.085      ; 1.243      ;
+; 0.988 ; mat_result[7]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.255      ;
+; 0.991 ; mat_result[3]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.258      ;
+; 0.991 ; mat_result[1]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.258      ;
+; 1.004 ; mat_result[15]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.271      ;
 ; 1.013 ; mat_result[14]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.280      ;
-; 1.013 ; mat_result[6]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.280      ;
-; 1.014 ; mat_result[2]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.281      ;
 ; 1.014 ; mat_result[14]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.281      ;
-; 1.015 ; mat_result[2]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.282      ;
-; 1.021 ; wait_one_cycle      ; col_1[0]            ; clk          ; clk         ; 0.000        ; 0.077      ; 1.287      ;
+; 1.022 ; mat_result[16]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.289      ;
+; 1.023 ; mat_result[16]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.290      ;
+; 1.026 ; mat_result[6]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.293      ;
 ; 1.027 ; mat_result[4]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.294      ;
+; 1.027 ; mat_result[6]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.294      ;
 ; 1.028 ; mat_result[4]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.295      ;
-; 1.034 ; currState.MAT1_READ ; currState.MAT2_READ ; clk          ; clk         ; 0.000        ; 0.079      ; 1.302      ;
-; 1.037 ; mat_result[17]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.304      ;
-; 1.077 ; mat_result[13]      ; mat_result[13]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.344      ;
-; 1.123 ; mat_result[15]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.390      ;
-; 1.124 ; mat_result[15]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.391      ;
-; 1.135 ; mat_result[7]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.402      ;
-; 1.138 ; mat_result[7]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.076      ; 1.403      ;
-; 1.139 ; mat_result[3]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.406      ;
-; 1.140 ; mat_result[3]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.407      ;
-; 1.141 ; mat_result[16]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.408      ;
-; 1.146 ; mat_result[6]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.413      ;
+; 1.028 ; mat_result[2]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.295      ;
+; 1.029 ; mat_result[2]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.296      ;
+; 1.039 ; wait_one_cycle      ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.082      ; 1.310      ;
+; 1.074 ; mat_result[13]      ; mat_result[13]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.341      ;
+; 1.085 ; row_2[0]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.078      ; 1.352      ;
+; 1.102 ; mat_result[15]      ; out_data[15]~reg0   ; clk          ; clk         ; 0.000        ; 0.087      ; 1.378      ;
+; 1.121 ; mat_result[7]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.388      ;
+; 1.124 ; mat_result[7]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.076      ; 1.389      ;
+; 1.124 ; mat_result[3]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.391      ;
+; 1.124 ; mat_result[1]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.391      ;
+; 1.125 ; mat_result[3]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.392      ;
+; 1.125 ; mat_result[1]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.392      ;
+; 1.137 ; mat_result[15]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.404      ;
+; 1.138 ; mat_result[19]      ; out_data[19]~reg0   ; clk          ; clk         ; 0.000        ; 0.087      ; 1.414      ;
+; 1.138 ; mat_result[15]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.405      ;
 ; 1.147 ; mat_result[14]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.414      ;
 ; 1.148 ; mat_result[14]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.415      ;
-; 1.148 ; mat_result[9]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.076      ; 1.413      ;
-; 1.148 ; mat_result[2]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.415      ;
-; 1.149 ; mat_result[6]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.076      ; 1.414      ;
-; 1.149 ; mat_result[2]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.416      ;
-; 1.153 ; mat_result[4]       ; out_data[4]~reg0    ; clk          ; clk         ; 0.000        ; 0.086      ; 1.428      ;
-; 1.161 ; mat_result[4]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.428      ;
-; 1.162 ; mat_result[4]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.429      ;
-; 1.173 ; mat_result[1]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.440      ;
-; 1.182 ; mat_result[12]      ; mat_result[13]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.449      ;
-; 1.183 ; mat_result[12]      ; mat_result[14]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.450      ;
-; 1.184 ; mat_result[13]      ; out_data[13]~reg0   ; clk          ; clk         ; 0.000        ; 0.084      ; 1.457      ;
-; 1.184 ; wait_one_cycle      ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.077      ; 1.450      ;
-; 1.186 ; mat_result[0]       ; mat_result[1]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.453      ;
-; 1.187 ; mat_result[0]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.454      ;
-; 1.188 ; mat_result[7]       ; out_data[7]~reg0    ; clk          ; clk         ; 0.000        ; 0.082      ; 1.459      ;
-; 1.189 ; mat_result[18]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.456      ;
-; 1.190 ; mat_result[8]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.078      ; 1.457      ;
-; 1.191 ; currState.MAT1_READ ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.079      ; 1.459      ;
-; 1.191 ; currState.MAT1_READ ; row_2[0]            ; clk          ; clk         ; 0.000        ; 0.079      ; 1.459      ;
-; 1.193 ; mat_result[8]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.076      ; 1.458      ;
-; 1.199 ; mat_result[3]       ; out_data[3]~reg0    ; clk          ; clk         ; 0.000        ; 0.082      ; 1.470      ;
+; 1.154 ; currState.OUTPUT    ; currState.OUTPUT    ; clk          ; clk         ; 0.000        ; 0.078      ; 1.421      ;
+; 1.156 ; mat_result[16]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.078      ; 1.423      ;
 +-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -399,7 +400,7 @@ No synchronizer chains to report.
 +------------+-----------------+------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
 +------------+-----------------+------------+------+
-; 108.41 MHz ; 108.41 MHz      ; clk        ;      ;
+; 108.67 MHz ; 108.67 MHz      ; clk        ;      ;
 +------------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -409,7 +410,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+---------------------+
 ; Clock ; Slack  ; End Point TNS       ;
 +-------+--------+---------------------+
-; clk   ; -8.224 ; -925.125            ;
+; clk   ; -8.202 ; -946.792            ;
 +-------+--------+---------------------+
 
 
@@ -439,7 +440,7 @@ No paths to report.
 +-------+--------+-----------------------------------+
 ; Clock ; Slack  ; End Point TNS                     ;
 +-------+--------+-----------------------------------+
-; clk   ; -3.000 ; -411.630                          ;
+; clk   ; -3.000 ; -415.485                          ;
 +-------+--------+-----------------------------------+
 
 
@@ -448,106 +449,106 @@ No paths to report.
 +--------+-----------+----------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node ; To Node        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------+----------------+--------------+-------------+--------------+------------+------------+
-; -8.224 ; ROW[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.069     ; 9.155      ;
-; -8.183 ; IDX[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.065     ; 9.118      ;
-; -8.165 ; ROW[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.069     ; 9.096      ;
-; -8.116 ; ROW[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.069     ; 9.047      ;
-; -8.083 ; ROW[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.069     ; 9.014      ;
-; -8.075 ; IDX[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.065     ; 9.010      ;
-; -8.057 ; ROW[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.988      ;
-; -8.042 ; IDX[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.977      ;
-; -8.024 ; ROW[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.955      ;
-; -8.008 ; ROW[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.939      ;
-; -8.002 ; IDX[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.937      ;
-; -7.975 ; ROW[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.906      ;
-; -7.971 ; COL[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.894      ;
-; -7.967 ; IDX[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.902      ;
-; -7.949 ; ROW[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.880      ;
-; -7.937 ; mat1~67   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.870      ;
-; -7.934 ; IDX[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.869      ;
-; -7.916 ; ROW[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.847      ;
-; -7.900 ; ROW[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.831      ;
-; -7.894 ; IDX[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.829      ;
-; -7.867 ; ROW[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.798      ;
-; -7.863 ; COL[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.786      ;
-; -7.861 ; IDX[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.796      ;
-; -7.859 ; IDX[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.794      ;
-; -7.849 ; mat1~94   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 8.787      ;
-; -7.844 ; COL[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.767      ;
-; -7.841 ; ROW[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.772      ;
-; -7.830 ; COL[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.753      ;
-; -7.829 ; mat1~67   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.762      ;
-; -7.826 ; IDX[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.761      ;
-; -7.808 ; ROW[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.739      ;
-; -7.796 ; mat1~67   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.729      ;
-; -7.792 ; ROW[1]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.723      ;
-; -7.786 ; IDX[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.721      ;
-; -7.785 ; mat1~10   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.717      ;
-; -7.782 ; mat1~20   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.715      ;
-; -7.774 ; mat1~51   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.064     ; 8.710      ;
-; -7.773 ; mat1~46   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.704      ;
-; -7.759 ; ROW[1]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.690      ;
-; -7.755 ; COL[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.678      ;
-; -7.753 ; IDX[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.688      ;
-; -7.751 ; IDX[0]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.686      ;
-; -7.741 ; mat1~94   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.062     ; 8.679      ;
-; -7.738 ; mat1~52   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.071     ; 8.667      ;
-; -7.738 ; mat1~38   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 8.668      ;
-; -7.736 ; COL[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.659      ;
-; -7.733 ; ROW[0]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.664      ;
-; -7.722 ; COL[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.645      ;
-; -7.721 ; mat1~67   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.654      ;
-; -7.718 ; IDX[0]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.653      ;
-; -7.708 ; mat1~94   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.062     ; 8.646      ;
-; -7.704 ; mat1~86   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.063     ; 8.641      ;
-; -7.703 ; mat1~108  ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.635      ;
-; -7.703 ; COL[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.626      ;
-; -7.700 ; ROW[0]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.631      ;
-; -7.697 ; mat1~48   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.071     ; 8.626      ;
-; -7.688 ; mat1~67   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.621      ;
-; -7.681 ; ROW[1]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.066     ; 8.615      ;
-; -7.679 ; mat1~89   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 8.617      ;
-; -7.678 ; IDX[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.613      ;
-; -7.677 ; mat1~10   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.609      ;
-; -7.674 ; mat1~20   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.607      ;
-; -7.666 ; mat1~51   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.064     ; 8.602      ;
-; -7.665 ; mat1~46   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.596      ;
-; -7.654 ; mat1~44   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.071     ; 8.583      ;
-; -7.651 ; ROW[1]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.582      ;
-; -7.647 ; COL[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.570      ;
-; -7.645 ; IDX[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.580      ;
-; -7.644 ; mat1~10   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.576      ;
-; -7.641 ; mat1~20   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.574      ;
-; -7.640 ; IDX[0]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.062     ; 8.578      ;
-; -7.633 ; mat1~51   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.064     ; 8.569      ;
-; -7.633 ; mat1~94   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.062     ; 8.571      ;
-; -7.632 ; mat1~46   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.563      ;
-; -7.631 ; mat1~35   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 8.561      ;
-; -7.630 ; mat1~52   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.071     ; 8.559      ;
-; -7.630 ; mat1~38   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.070     ; 8.560      ;
-; -7.628 ; COL[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.551      ;
-; -7.622 ; mat1~93   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 8.560      ;
-; -7.622 ; ROW[0]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.066     ; 8.556      ;
-; -7.615 ; mat1~76   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.063     ; 8.552      ;
-; -7.614 ; COL[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.537      ;
-; -7.613 ; mat1~67   ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.546      ;
-; -7.610 ; mat1~95   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 8.548      ;
-; -7.610 ; IDX[0]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.545      ;
-; -7.600 ; mat1~94   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.062     ; 8.538      ;
-; -7.597 ; mat1~52   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.071     ; 8.526      ;
-; -7.597 ; mat1~38   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.070     ; 8.527      ;
-; -7.596 ; mat1~86   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.063     ; 8.533      ;
-; -7.595 ; mat1~108  ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.527      ;
-; -7.595 ; COL[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.077     ; 8.518      ;
-; -7.592 ; ROW[0]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.523      ;
-; -7.591 ; mat1~47   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.522      ;
-; -7.589 ; mat1~48   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.071     ; 8.518      ;
-; -7.580 ; mat1~67   ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.513      ;
-; -7.573 ; ROW[1]    ; mat_result[7]  ; clk          ; clk         ; 1.000        ; -0.066     ; 8.507      ;
-; -7.571 ; mat1~89   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.062     ; 8.509      ;
-; -7.570 ; IDX[1]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.505      ;
-; -7.569 ; mat1~10   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.501      ;
-; -7.566 ; mat1~20   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.499      ;
+; -8.202 ; ROW[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.068     ; 9.134      ;
+; -8.094 ; ROW[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.068     ; 9.026      ;
+; -8.068 ; mat1~10   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.072     ; 8.996      ;
+; -8.061 ; ROW[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.993      ;
+; -8.050 ; IDX[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.981      ;
+; -7.986 ; ROW[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.918      ;
+; -7.984 ; ROW[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.910      ;
+; -7.960 ; mat1~10   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.072     ; 8.888      ;
+; -7.953 ; ROW[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.885      ;
+; -7.942 ; IDX[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.873      ;
+; -7.927 ; mat1~10   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.072     ; 8.855      ;
+; -7.909 ; IDX[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.840      ;
+; -7.889 ; mat1~59   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 8.819      ;
+; -7.886 ; mat1~85   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.821      ;
+; -7.882 ; mat1~45   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.815      ;
+; -7.878 ; ROW[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.810      ;
+; -7.876 ; ROW[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.802      ;
+; -7.856 ; mat1~87   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.791      ;
+; -7.852 ; mat1~10   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.072     ; 8.780      ;
+; -7.845 ; ROW[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.777      ;
+; -7.843 ; ROW[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.769      ;
+; -7.842 ; mat1~86   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.777      ;
+; -7.840 ; mat1~81   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.775      ;
+; -7.835 ; IDX[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.766      ;
+; -7.834 ; IDX[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.765      ;
+; -7.819 ; mat1~10   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.072     ; 8.747      ;
+; -7.805 ; COL[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.737      ;
+; -7.801 ; IDX[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.732      ;
+; -7.785 ; mat1~2    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.716      ;
+; -7.781 ; mat1~59   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.070     ; 8.711      ;
+; -7.778 ; mat1~85   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.713      ;
+; -7.774 ; mat1~45   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.707      ;
+; -7.774 ; mat1~16   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.700      ;
+; -7.770 ; ROW[1]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.702      ;
+; -7.768 ; ROW[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.694      ;
+; -7.753 ; mat1~42   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.686      ;
+; -7.751 ; mat1~89   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.073     ; 8.678      ;
+; -7.748 ; mat1~59   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.070     ; 8.678      ;
+; -7.748 ; mat1~87   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.683      ;
+; -7.745 ; mat1~85   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.680      ;
+; -7.744 ; mat1~10   ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.072     ; 8.672      ;
+; -7.741 ; mat1~45   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.674      ;
+; -7.740 ; mat1~94   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.073     ; 8.667      ;
+; -7.737 ; ROW[1]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.669      ;
+; -7.735 ; COL[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.667      ;
+; -7.735 ; ROW[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.661      ;
+; -7.734 ; mat1~86   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.669      ;
+; -7.732 ; mat1~81   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.667      ;
+; -7.729 ; mat1~47   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.662      ;
+; -7.727 ; IDX[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.658      ;
+; -7.726 ; IDX[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.657      ;
+; -7.720 ; mat1~52   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.075     ; 8.645      ;
+; -7.715 ; mat1~87   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.650      ;
+; -7.711 ; mat1~10   ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.072     ; 8.639      ;
+; -7.706 ; mat1~95   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.073     ; 8.633      ;
+; -7.701 ; mat1~86   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.636      ;
+; -7.699 ; mat1~81   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.634      ;
+; -7.697 ; COL[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.629      ;
+; -7.694 ; IDX[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.625      ;
+; -7.693 ; IDX[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.624      ;
+; -7.691 ; mat1~93   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.073     ; 8.618      ;
+; -7.686 ; mat1~48   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.075     ; 8.611      ;
+; -7.677 ; mat1~2    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.608      ;
+; -7.673 ; mat1~59   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.070     ; 8.603      ;
+; -7.670 ; mat1~85   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.605      ;
+; -7.666 ; mat1~45   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.599      ;
+; -7.666 ; mat1~16   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.592      ;
+; -7.664 ; COL[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.596      ;
+; -7.660 ; ROW[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.586      ;
+; -7.659 ; ROW[1]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.065     ; 8.594      ;
+; -7.656 ; mat1~82   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.063     ; 8.593      ;
+; -7.645 ; mat1~42   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.578      ;
+; -7.644 ; mat1~2    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.575      ;
+; -7.643 ; mat1~89   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.073     ; 8.570      ;
+; -7.640 ; mat1~59   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.070     ; 8.570      ;
+; -7.640 ; mat1~87   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.575      ;
+; -7.637 ; mat1~85   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.572      ;
+; -7.636 ; mat1~10   ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.072     ; 8.564      ;
+; -7.633 ; mat1~45   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.566      ;
+; -7.633 ; mat1~16   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.559      ;
+; -7.632 ; mat1~94   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.073     ; 8.559      ;
+; -7.629 ; ROW[1]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.561      ;
+; -7.627 ; COL[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.559      ;
+; -7.627 ; ROW[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.074     ; 8.553      ;
+; -7.626 ; mat1~86   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.561      ;
+; -7.624 ; mat1~81   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.559      ;
+; -7.621 ; mat1~47   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.554      ;
+; -7.619 ; IDX[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.550      ;
+; -7.618 ; IDX[1]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.069     ; 8.549      ;
+; -7.612 ; mat1~41   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.545      ;
+; -7.612 ; mat1~42   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.067     ; 8.545      ;
+; -7.612 ; mat1~52   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.075     ; 8.537      ;
+; -7.610 ; mat1~89   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.073     ; 8.537      ;
+; -7.607 ; mat1~87   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.542      ;
+; -7.603 ; mat1~10   ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.072     ; 8.531      ;
+; -7.599 ; mat1~94   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.073     ; 8.526      ;
+; -7.598 ; mat1~95   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.073     ; 8.525      ;
+; -7.594 ; COL[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.068     ; 8.526      ;
+; -7.593 ; mat1~86   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.528      ;
+; -7.591 ; mat1~81   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.065     ; 8.526      ;
 +--------+-----------+----------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -556,106 +557,106 @@ No paths to report.
 +-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node           ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
-; 0.341 ; ROW[1]              ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.065      ; 0.574      ;
-; 0.341 ; row_1[1]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.065      ; 0.574      ;
-; 0.341 ; COL[1]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.065      ; 0.574      ;
-; 0.342 ; is_legal~reg0       ; is_legal~reg0       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
+; 0.341 ; is_legal~reg0       ; is_legal~reg0       ; clk          ; clk         ; 0.000        ; 0.065      ; 0.574      ;
+; 0.341 ; currState.MAT1_READ ; currState.MAT1_READ ; clk          ; clk         ; 0.000        ; 0.065      ; 0.574      ;
+; 0.341 ; ROW[0]              ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.065      ; 0.574      ;
+; 0.341 ; VALID_MATRIX        ; VALID_MATRIX        ; clk          ; clk         ; 0.000        ; 0.065      ; 0.574      ;
 ; 0.342 ; valid~reg0          ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
-; 0.342 ; IDX[1]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
+; 0.342 ; ROW[1]              ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
+; 0.342 ; COL[1]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
 ; 0.342 ; col_2[1]            ; col_2[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
 ; 0.342 ; row_2[1]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
+; 0.342 ; row_2[0]            ; row_2[0]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
+; 0.342 ; row_1[0]            ; row_1[0]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
+; 0.342 ; row_1[1]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
+; 0.342 ; IDX[1]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
 ; 0.342 ; wait_one_cycle      ; wait_one_cycle      ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
-; 0.355 ; ROW[0]              ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.065      ; 0.588      ;
-; 0.355 ; row_1[0]            ; row_1[0]            ; clk          ; clk         ; 0.000        ; 0.065      ; 0.588      ;
-; 0.355 ; COL[0]              ; COL[0]              ; clk          ; clk         ; 0.000        ; 0.065      ; 0.588      ;
-; 0.356 ; IDX[0]              ; IDX[0]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.588      ;
+; 0.342 ; col_1[1]            ; col_1[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.574      ;
+; 0.356 ; COL[0]              ; COL[0]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.588      ;
 ; 0.356 ; col_2[0]            ; col_2[0]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.588      ;
-; 0.356 ; row_2[0]            ; row_2[0]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.588      ;
+; 0.356 ; IDX[0]              ; IDX[0]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.588      ;
 ; 0.356 ; col_1[0]            ; col_1[0]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.588      ;
-; 0.402 ; mat_result[15]      ; out_data[15]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.635      ;
-; 0.402 ; mat_result[2]       ; out_data[2]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.634      ;
-; 0.403 ; mat_result[16]      ; out_data[16]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.636      ;
-; 0.403 ; mat_result[6]       ; out_data[6]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.635      ;
-; 0.415 ; mat_result[10]      ; out_data[10]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.648      ;
-; 0.415 ; mat_result[8]       ; out_data[8]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.647      ;
-; 0.415 ; row_1[0]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.065      ; 0.648      ;
-; 0.416 ; mat_result[11]      ; out_data[11]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.649      ;
-; 0.510 ; mat_result[14]      ; out_data[14]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.743      ;
-; 0.523 ; mat_result[1]       ; out_data[1]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.755      ;
+; 0.403 ; mat_result[3]       ; out_data[3]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.635      ;
+; 0.413 ; mat_result[18]      ; out_data[18]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.646      ;
+; 0.414 ; mat_result[11]      ; out_data[11]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.647      ;
+; 0.414 ; mat_result[10]      ; out_data[10]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.647      ;
+; 0.415 ; mat_result[13]      ; out_data[13]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.648      ;
+; 0.417 ; mat_result[8]       ; out_data[8]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.649      ;
+; 0.420 ; IDX[0]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.652      ;
+; 0.510 ; mat_result[1]       ; out_data[1]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.742      ;
+; 0.511 ; mat_result[14]      ; out_data[14]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.744      ;
+; 0.512 ; mat_result[7]       ; out_data[7]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.744      ;
+; 0.522 ; mat_result[17]      ; out_data[17]~reg0   ; clk          ; clk         ; 0.000        ; 0.065      ; 0.755      ;
+; 0.523 ; mat_result[9]       ; out_data[9]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.755      ;
 ; 0.524 ; mat_result[5]       ; out_data[5]~reg0    ; clk          ; clk         ; 0.000        ; 0.064      ; 0.756      ;
-; 0.577 ; mat_result[16]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.810      ;
-; 0.580 ; mat_result[15]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.813      ;
-; 0.580 ; mat_result[6]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.812      ;
-; 0.581 ; mat_result[14]      ; mat_result[14]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.814      ;
-; 0.582 ; mat_result[2]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.814      ;
-; 0.592 ; mat_result[7]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.824      ;
+; 0.525 ; currState.OUTPUT    ; currState.MULTIPLY  ; clk          ; clk         ; 0.000        ; 0.065      ; 0.758      ;
+; 0.555 ; col_1[1]            ; MAT_COL_SIZE[1]     ; clk          ; clk         ; 0.000        ; 0.065      ; 0.788      ;
+; 0.560 ; currState.MAT1_READ ; currState.MAT2_READ ; clk          ; clk         ; 0.000        ; 0.065      ; 0.793      ;
+; 0.580 ; mat_result[7]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.812      ;
+; 0.582 ; mat_result[14]      ; mat_result[14]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.815      ;
+; 0.584 ; mat_result[3]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.816      ;
+; 0.585 ; mat_result[1]       ; mat_result[1]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.817      ;
+; 0.590 ; mat_result[16]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.823      ;
+; 0.593 ; mat_result[15]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.826      ;
+; 0.594 ; mat_result[6]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.826      ;
 ; 0.594 ; mat_result[4]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.826      ;
-; 0.594 ; currState.MAT2_READ ; currState.MULTIPLY  ; clk          ; clk         ; 0.000        ; 0.064      ; 0.826      ;
-; 0.596 ; mat_result[3]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.828      ;
+; 0.594 ; mat_result[2]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.826      ;
 ; 0.597 ; mat_result[19]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.830      ;
-; 0.598 ; currState.MULTIPLY  ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.064      ; 0.830      ;
-; 0.631 ; IDX[0]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.863      ;
-; 0.639 ; ROW[0]              ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.065      ; 0.872      ;
-; 0.658 ; col_2[0]            ; col_2[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.890      ;
-; 0.679 ; COL[0]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.065      ; 0.912      ;
-; 0.732 ; row_2[0]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.964      ;
-; 0.734 ; mat_result[9]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.966      ;
+; 0.618 ; row_1[0]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.063      ; 0.849      ;
+; 0.625 ; currState.MAT2_READ ; currState.MULTIPLY  ; clk          ; clk         ; 0.000        ; 0.065      ; 0.858      ;
+; 0.642 ; COL[0]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.064      ; 0.874      ;
+; 0.651 ; col_2[0]            ; col_2[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.883      ;
+; 0.656 ; currState.MAT1_READ ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.065      ; 0.889      ;
+; 0.673 ; currState.MAT1_READ ; VALID_MATRIX        ; clk          ; clk         ; 0.000        ; 0.065      ; 0.906      ;
+; 0.675 ; currState.OUTPUT    ; currState.MAT1_READ ; clk          ; clk         ; 0.000        ; 0.065      ; 0.908      ;
+; 0.677 ; col_1[0]            ; col_1[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 0.909      ;
 ; 0.743 ; mat_result[0]       ; mat_result[0]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.975      ;
+; 0.745 ; mat_result[9]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.977      ;
 ; 0.746 ; mat_result[18]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.979      ;
 ; 0.747 ; mat_result[12]      ; mat_result[12]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.980      ;
 ; 0.747 ; mat_result[8]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.979      ;
-; 0.750 ; mat_result[1]       ; mat_result[1]       ; clk          ; clk         ; 0.000        ; 0.064      ; 0.982      ;
-; 0.851 ; COL[0]              ; change_row~reg0     ; clk          ; clk         ; 0.000        ; 0.065      ; 1.084      ;
-; 0.853 ; mat_result[16]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.086      ;
-; 0.854 ; mat_result[15]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.087      ;
-; 0.858 ; mat_result[6]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.090      ;
-; 0.859 ; mat_result[14]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.092      ;
-; 0.860 ; mat_result[2]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.092      ;
-; 0.866 ; currState.MAT1_READ ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.064      ; 1.098      ;
-; 0.866 ; mat_result[7]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.098      ;
-; 0.867 ; mat_result[16]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.100      ;
+; 0.754 ; mat_result[17]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.065      ; 0.987      ;
+; 0.765 ; col_1[0]            ; MAT_COL_SIZE[0]     ; clk          ; clk         ; 0.000        ; 0.065      ; 0.998      ;
+; 0.808 ; mat_result[12]      ; out_data[12]~reg0   ; clk          ; clk         ; 0.000        ; 0.076      ; 1.052      ;
+; 0.812 ; mat_result[6]       ; out_data[6]~reg0    ; clk          ; clk         ; 0.000        ; 0.073      ; 1.053      ;
+; 0.818 ; mat_result[2]       ; out_data[2]~reg0    ; clk          ; clk         ; 0.000        ; 0.073      ; 1.059      ;
+; 0.818 ; currState.MULTIPLY  ; IDX[0]              ; clk          ; clk         ; 0.000        ; 0.060      ; 1.046      ;
+; 0.820 ; mat_result[4]       ; out_data[4]~reg0    ; clk          ; clk         ; 0.000        ; 0.073      ; 1.061      ;
+; 0.824 ; mat_result[16]      ; out_data[16]~reg0   ; clk          ; clk         ; 0.000        ; 0.076      ; 1.068      ;
+; 0.825 ; currState.MAT2_READ ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.059      ; 1.052      ;
+; 0.838 ; mat_result[0]       ; out_data[0]~reg0    ; clk          ; clk         ; 0.000        ; 0.073      ; 1.079      ;
+; 0.845 ; currState.MULTIPLY  ; currState.OUTPUT    ; clk          ; clk         ; 0.000        ; 0.065      ; 1.078      ;
+; 0.854 ; mat_result[7]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.086      ;
+; 0.860 ; mat_result[3]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.092      ;
+; 0.860 ; mat_result[14]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.093      ;
+; 0.861 ; mat_result[1]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.093      ;
+; 0.866 ; mat_result[16]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.099      ;
+; 0.867 ; mat_result[15]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.100      ;
 ; 0.872 ; mat_result[4]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.104      ;
-; 0.872 ; mat_result[3]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.104      ;
-; 0.872 ; mat_result[6]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.104      ;
-; 0.873 ; mat_result[14]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.106      ;
-; 0.874 ; mat_result[2]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.106      ;
-; 0.876 ; wait_one_cycle      ; col_1[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 1.108      ;
+; 0.872 ; mat_result[6]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.104      ;
+; 0.872 ; mat_result[2]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.104      ;
+; 0.874 ; mat_result[14]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.107      ;
+; 0.880 ; mat_result[16]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.113      ;
 ; 0.886 ; mat_result[4]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.118      ;
-; 0.888 ; wait_one_cycle      ; col_1[0]            ; clk          ; clk         ; 0.000        ; 0.064      ; 1.120      ;
-; 0.904 ; currState.MAT1_READ ; currState.MAT2_READ ; clk          ; clk         ; 0.000        ; 0.065      ; 1.137      ;
-; 0.904 ; mat_result[17]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.137      ;
-; 0.922 ; mat_result[13]      ; mat_result[13]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.155      ;
-; 0.944 ; mat_result[15]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.177      ;
-; 0.956 ; mat_result[7]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.188      ;
-; 0.957 ; mat_result[16]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.190      ;
-; 0.958 ; mat_result[15]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.191      ;
-; 0.962 ; mat_result[3]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.194      ;
-; 0.962 ; mat_result[6]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.194      ;
-; 0.963 ; mat_result[14]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.196      ;
-; 0.964 ; mat_result[2]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.196      ;
-; 0.972 ; mat_result[7]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.062      ; 1.202      ;
+; 0.886 ; mat_result[6]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.118      ;
+; 0.886 ; mat_result[2]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.118      ;
+; 0.920 ; mat_result[13]      ; mat_result[13]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.153      ;
+; 0.929 ; wait_one_cycle      ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.070      ; 1.167      ;
+; 0.937 ; row_2[0]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 1.169      ;
+; 0.944 ; mat_result[7]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.176      ;
+; 0.950 ; mat_result[3]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.182      ;
+; 0.951 ; mat_result[1]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.183      ;
+; 0.957 ; mat_result[15]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.190      ;
+; 0.960 ; mat_result[7]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.062      ; 1.190      ;
+; 0.964 ; mat_result[3]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.196      ;
+; 0.964 ; mat_result[14]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.197      ;
+; 0.965 ; mat_result[1]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.197      ;
+; 0.970 ; mat_result[16]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.203      ;
+; 0.971 ; mat_result[15]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.204      ;
+; 0.976 ; mat_result[15]      ; out_data[15]~reg0   ; clk          ; clk         ; 0.000        ; 0.076      ; 1.220      ;
 ; 0.976 ; mat_result[4]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.208      ;
-; 0.976 ; mat_result[3]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.208      ;
-; 0.977 ; mat_result[14]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.210      ;
-; 0.978 ; mat_result[6]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.062      ; 1.208      ;
-; 0.978 ; mat_result[2]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.210      ;
-; 0.982 ; mat_result[4]       ; out_data[4]~reg0    ; clk          ; clk         ; 0.000        ; 0.074      ; 1.224      ;
-; 0.990 ; mat_result[4]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.222      ;
-; 0.999 ; mat_result[0]       ; mat_result[1]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.231      ;
-; 1.008 ; mat_result[18]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.241      ;
-; 1.009 ; mat_result[8]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.241      ;
-; 1.012 ; mat_result[12]      ; mat_result[13]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.245      ;
-; 1.013 ; mat_result[13]      ; out_data[13]~reg0   ; clk          ; clk         ; 0.000        ; 0.074      ; 1.255      ;
-; 1.013 ; wait_one_cycle      ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.064      ; 1.245      ;
-; 1.014 ; mat_result[9]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.062      ; 1.244      ;
-; 1.017 ; mat_result[7]       ; out_data[7]~reg0    ; clk          ; clk         ; 0.000        ; 0.071      ; 1.256      ;
-; 1.019 ; currState.MAT1_READ ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.065      ; 1.252      ;
-; 1.027 ; mat_result[3]       ; out_data[3]~reg0    ; clk          ; clk         ; 0.000        ; 0.071      ; 1.266      ;
-; 1.027 ; mat_result[1]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.259      ;
-; 1.037 ; mat_result[12]      ; mat_result[14]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.270      ;
-; 1.041 ; mat_result[8]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.062      ; 1.271      ;
-; 1.042 ; mat_result[0]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.274      ;
-; 1.048 ; mat_result[15]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.065      ; 1.281      ;
+; 0.976 ; mat_result[6]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.208      ;
+; 0.976 ; mat_result[2]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.064      ; 1.208      ;
 +-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -670,7 +671,7 @@ No synchronizer chains to report.
 +-------+--------+---------------------+
 ; Clock ; Slack  ; End Point TNS       ;
 +-------+--------+---------------------+
-; clk   ; -3.880 ; -338.547            ;
+; clk   ; -3.888 ; -354.903            ;
 +-------+--------+---------------------+
 
 
@@ -700,7 +701,7 @@ No paths to report.
 +-------+--------+-----------------------------------+
 ; Clock ; Slack  ; End Point TNS                     ;
 +-------+--------+-----------------------------------+
-; clk   ; -3.000 ; -337.364                          ;
+; clk   ; -3.000 ; -340.460                          ;
 +-------+--------+-----------------------------------+
 
 
@@ -709,106 +710,106 @@ No paths to report.
 +--------+-----------+----------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node ; To Node        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------+----------------+--------------+-------------+--------------+------------+------------+
-; -3.880 ; COL[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.822      ;
-; -3.871 ; COL[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.813      ;
-; -3.864 ; ROW[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.811      ;
-; -3.855 ; ROW[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.802      ;
-; -3.835 ; ROW[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.782      ;
-; -3.828 ; IDX[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.779      ;
-; -3.826 ; ROW[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.773      ;
-; -3.819 ; IDX[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.770      ;
-; -3.816 ; COL[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.758      ;
-; -3.807 ; COL[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.749      ;
-; -3.800 ; ROW[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.747      ;
-; -3.798 ; COL[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.740      ;
-; -3.791 ; ROW[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.738      ;
-; -3.789 ; COL[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.731      ;
-; -3.771 ; ROW[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.718      ;
-; -3.764 ; IDX[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.715      ;
-; -3.762 ; ROW[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.709      ;
-; -3.755 ; IDX[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.706      ;
-; -3.752 ; COL[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.694      ;
-; -3.743 ; COL[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.685      ;
-; -3.736 ; ROW[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.683      ;
-; -3.734 ; COL[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.676      ;
-; -3.727 ; ROW[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.674      ;
-; -3.725 ; COL[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.667      ;
-; -3.709 ; IDX[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.660      ;
-; -3.707 ; ROW[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.654      ;
-; -3.700 ; IDX[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.651      ;
-; -3.700 ; IDX[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.651      ;
-; -3.698 ; ROW[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.645      ;
-; -3.691 ; IDX[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.642      ;
-; -3.688 ; COL[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.630      ;
-; -3.679 ; COL[0]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.621      ;
-; -3.672 ; ROW[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.619      ;
-; -3.670 ; COL[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.612      ;
-; -3.666 ; mat1~67   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.615      ;
-; -3.663 ; ROW[1]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.610      ;
-; -3.661 ; COL[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.603      ;
-; -3.657 ; mat1~67   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.606      ;
-; -3.645 ; IDX[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.596      ;
-; -3.643 ; mat1~94   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.597      ;
-; -3.643 ; ROW[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.590      ;
-; -3.636 ; IDX[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.587      ;
-; -3.636 ; IDX[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.587      ;
-; -3.634 ; mat1~94   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.588      ;
-; -3.634 ; ROW[0]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.581      ;
-; -3.627 ; IDX[0]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.578      ;
-; -3.624 ; COL[0]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.566      ;
-; -3.623 ; mat1~46   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.570      ;
-; -3.616 ; mat1~20   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.565      ;
-; -3.615 ; COL[0]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.557      ;
-; -3.614 ; mat1~46   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.561      ;
-; -3.608 ; ROW[1]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.555      ;
-; -3.607 ; mat1~20   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.556      ;
-; -3.606 ; COL[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.548      ;
-; -3.602 ; mat1~67   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.551      ;
-; -3.600 ; mat1~10   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.547      ;
-; -3.599 ; ROW[1]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.546      ;
-; -3.597 ; mat1~108  ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.544      ;
-; -3.597 ; COL[1]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.539      ;
-; -3.593 ; mat1~67   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.542      ;
-; -3.591 ; mat1~10   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.538      ;
-; -3.588 ; mat1~108  ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.535      ;
-; -3.588 ; mat1~38   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.534      ;
-; -3.581 ; IDX[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.532      ;
-; -3.579 ; mat1~94   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.533      ;
-; -3.579 ; mat1~38   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.525      ;
-; -3.579 ; ROW[0]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.526      ;
-; -3.578 ; mat1~52   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.523      ;
-; -3.573 ; mat1~44   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.518      ;
-; -3.572 ; IDX[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.523      ;
-; -3.572 ; IDX[0]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.523      ;
-; -3.571 ; mat1~51   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.035     ; 4.524      ;
-; -3.570 ; mat1~94   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.524      ;
-; -3.570 ; ROW[0]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.517      ;
-; -3.569 ; mat1~52   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.514      ;
-; -3.564 ; mat1~44   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.509      ;
-; -3.563 ; IDX[0]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.514      ;
-; -3.562 ; mat1~51   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.035     ; 4.515      ;
-; -3.559 ; mat1~46   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.506      ;
-; -3.557 ; COL[0]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.043     ; 4.502      ;
-; -3.552 ; mat1~20   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.501      ;
-; -3.551 ; mat1~73   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.505      ;
-; -3.550 ; mat1~46   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.497      ;
-; -3.549 ; mat1~35   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.495      ;
-; -3.549 ; mat1~48   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.494      ;
-; -3.548 ; COL[0]    ; mat_result[8]  ; clk          ; clk         ; 1.000        ; -0.043     ; 4.493      ;
-; -3.548 ; mat1~79   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.502      ;
-; -3.543 ; mat1~20   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.492      ;
-; -3.542 ; mat1~73   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.496      ;
-; -3.542 ; COL[1]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.046     ; 4.484      ;
-; -3.541 ; ROW[1]    ; mat_result[9]  ; clk          ; clk         ; 1.000        ; -0.038     ; 4.491      ;
-; -3.540 ; mat1~35   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.486      ;
-; -3.540 ; mat1~48   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.485      ;
-; -3.539 ; mat1~79   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.493      ;
-; -3.538 ; mat1~67   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.487      ;
-; -3.536 ; mat1~10   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.483      ;
-; -3.535 ; mat1~86   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.489      ;
-; -3.535 ; mat2~87   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.048     ; 4.475      ;
-; -3.534 ; mat1~89   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 4.488      ;
-; -3.533 ; mat1~108  ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.480      ;
+; -3.888 ; ROW[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.836      ;
+; -3.884 ; ROW[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.832      ;
+; -3.824 ; ROW[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.772      ;
+; -3.820 ; ROW[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.768      ;
+; -3.792 ; IDX[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.739      ;
+; -3.788 ; IDX[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.735      ;
+; -3.778 ; ROW[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.723      ;
+; -3.774 ; ROW[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.719      ;
+; -3.773 ; mat1~10   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.717      ;
+; -3.769 ; mat1~10   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.713      ;
+; -3.760 ; ROW[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.708      ;
+; -3.756 ; ROW[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.704      ;
+; -3.752 ; mat1~59   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.698      ;
+; -3.748 ; mat1~59   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.694      ;
+; -3.735 ; COL[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.682      ;
+; -3.731 ; COL[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.678      ;
+; -3.728 ; IDX[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.675      ;
+; -3.724 ; IDX[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.671      ;
+; -3.714 ; ROW[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.659      ;
+; -3.710 ; ROW[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.655      ;
+; -3.709 ; mat1~10   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.653      ;
+; -3.707 ; mat1~85   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.658      ;
+; -3.705 ; IDX[0]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.652      ;
+; -3.705 ; mat1~10   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.649      ;
+; -3.703 ; mat1~85   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.654      ;
+; -3.701 ; IDX[0]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.648      ;
+; -3.696 ; ROW[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.644      ;
+; -3.692 ; ROW[1]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.640      ;
+; -3.690 ; mat1~45   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.639      ;
+; -3.688 ; mat1~59   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.634      ;
+; -3.686 ; mat1~45   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.635      ;
+; -3.684 ; mat1~59   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.630      ;
+; -3.683 ; mat1~81   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.634      ;
+; -3.680 ; COL[1]    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.627      ;
+; -3.680 ; mat1~87   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.631      ;
+; -3.679 ; mat1~81   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.630      ;
+; -3.676 ; COL[1]    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.623      ;
+; -3.676 ; mat1~87   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.627      ;
+; -3.675 ; mat1~86   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.626      ;
+; -3.671 ; mat1~86   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.622      ;
+; -3.671 ; COL[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.618      ;
+; -3.667 ; COL[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.614      ;
+; -3.664 ; IDX[1]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.611      ;
+; -3.660 ; IDX[1]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.607      ;
+; -3.650 ; ROW[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.595      ;
+; -3.646 ; ROW[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.591      ;
+; -3.645 ; mat1~10   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.589      ;
+; -3.643 ; mat1~85   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.594      ;
+; -3.641 ; IDX[0]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.588      ;
+; -3.641 ; mat1~10   ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.585      ;
+; -3.639 ; mat1~16   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.584      ;
+; -3.639 ; mat1~85   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.590      ;
+; -3.638 ; mat1~2    ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.585      ;
+; -3.637 ; IDX[0]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.584      ;
+; -3.637 ; mat1~89   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.583      ;
+; -3.635 ; mat1~16   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.580      ;
+; -3.634 ; mat1~2    ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.581      ;
+; -3.633 ; mat1~89   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.579      ;
+; -3.632 ; ROW[1]    ; mat_result[11] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.580      ;
+; -3.629 ; mat1~94   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.575      ;
+; -3.628 ; ROW[1]    ; mat_result[10] ; clk          ; clk         ; 1.000        ; -0.040     ; 4.576      ;
+; -3.628 ; mat1~42   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.577      ;
+; -3.626 ; mat1~45   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.575      ;
+; -3.625 ; mat1~94   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.571      ;
+; -3.624 ; mat1~59   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.570      ;
+; -3.624 ; mat1~42   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.573      ;
+; -3.622 ; mat1~45   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.571      ;
+; -3.620 ; mat1~59   ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.566      ;
+; -3.619 ; mat1~81   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.570      ;
+; -3.616 ; COL[1]    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.563      ;
+; -3.616 ; mat1~87   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.567      ;
+; -3.615 ; mat1~81   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.566      ;
+; -3.612 ; COL[1]    ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.559      ;
+; -3.612 ; mat1~87   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.563      ;
+; -3.612 ; mat1~52   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.556      ;
+; -3.611 ; mat1~86   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.562      ;
+; -3.608 ; mat1~52   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.552      ;
+; -3.607 ; mat1~86   ; mat_result[16] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.558      ;
+; -3.607 ; COL[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.554      ;
+; -3.603 ; COL[0]    ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.550      ;
+; -3.600 ; IDX[1]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.547      ;
+; -3.596 ; IDX[1]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.543      ;
+; -3.593 ; mat1~83   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.544      ;
+; -3.592 ; mat1~48   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.536      ;
+; -3.589 ; mat1~83   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.540      ;
+; -3.588 ; mat1~47   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.537      ;
+; -3.588 ; mat1~48   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.532      ;
+; -3.587 ; mat1~93   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.533      ;
+; -3.586 ; ROW[0]    ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.531      ;
+; -3.584 ; mat1~47   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.039     ; 4.533      ;
+; -3.583 ; mat1~93   ; mat_result[18] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.529      ;
+; -3.582 ; ROW[0]    ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.527      ;
+; -3.581 ; mat1~10   ; mat_result[13] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.525      ;
+; -3.579 ; mat1~85   ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.530      ;
+; -3.577 ; IDX[0]    ; mat_result[15] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.524      ;
+; -3.577 ; mat1~10   ; mat_result[12] ; clk          ; clk         ; 1.000        ; -0.044     ; 4.521      ;
+; -3.576 ; mat1~95   ; mat_result[19] ; clk          ; clk         ; 1.000        ; -0.042     ; 4.522      ;
+; -3.575 ; mat1~16   ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.043     ; 4.520      ;
+; -3.575 ; mat1~85   ; mat_result[14] ; clk          ; clk         ; 1.000        ; -0.037     ; 4.526      ;
+; -3.574 ; mat1~2    ; mat_result[17] ; clk          ; clk         ; 1.000        ; -0.041     ; 4.521      ;
 +--------+-----------+----------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -819,104 +820,104 @@ No paths to report.
 +-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
 ; 0.177 ; is_legal~reg0       ; is_legal~reg0       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
 ; 0.177 ; valid~reg0          ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
+; 0.177 ; currState.MAT1_READ ; currState.MAT1_READ ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
+; 0.177 ; ROW[0]              ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
+; 0.177 ; ROW[1]              ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
 ; 0.177 ; COL[1]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
+; 0.177 ; VALID_MATRIX        ; VALID_MATRIX        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
 ; 0.177 ; col_2[1]            ; col_2[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
-; 0.177 ; row_2[1]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
+; 0.177 ; row_1[1]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
 ; 0.177 ; wait_one_cycle      ; wait_one_cycle      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
+; 0.177 ; col_1[1]            ; col_1[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.296      ;
+; 0.178 ; row_2[1]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.296      ;
+; 0.178 ; row_2[0]            ; row_2[0]            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.296      ;
+; 0.178 ; row_1[0]            ; row_1[0]            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.296      ;
 ; 0.178 ; IDX[1]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.296      ;
-; 0.178 ; ROW[1]              ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.296      ;
-; 0.178 ; row_1[1]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.296      ;
-; 0.181 ; col_2[0]            ; col_2[0]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.300      ;
 ; 0.181 ; COL[0]              ; COL[0]              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.300      ;
-; 0.181 ; row_2[0]            ; row_2[0]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.300      ;
+; 0.181 ; col_2[0]            ; col_2[0]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.300      ;
 ; 0.181 ; col_1[0]            ; col_1[0]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.300      ;
 ; 0.182 ; IDX[0]              ; IDX[0]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.300      ;
-; 0.182 ; ROW[0]              ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.300      ;
-; 0.182 ; row_1[0]            ; row_1[0]            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.300      ;
-; 0.186 ; mat_result[2]       ; out_data[2]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.305      ;
-; 0.188 ; mat_result[16]      ; out_data[16]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
-; 0.188 ; mat_result[15]      ; out_data[15]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
-; 0.188 ; mat_result[6]       ; out_data[6]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
-; 0.195 ; mat_result[8]       ; out_data[8]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
-; 0.196 ; mat_result[11]      ; out_data[11]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.315      ;
-; 0.196 ; mat_result[10]      ; out_data[10]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.315      ;
-; 0.206 ; row_1[0]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.324      ;
-; 0.242 ; mat_result[14]      ; out_data[14]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.361      ;
-; 0.248 ; mat_result[1]       ; out_data[1]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.367      ;
+; 0.188 ; mat_result[3]       ; out_data[3]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.194 ; mat_result[18]      ; out_data[18]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.313      ;
+; 0.195 ; mat_result[13]      ; out_data[13]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.195 ; mat_result[11]      ; out_data[11]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.195 ; mat_result[10]      ; out_data[10]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.196 ; mat_result[8]       ; out_data[8]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.315      ;
+; 0.209 ; IDX[0]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.327      ;
+; 0.240 ; mat_result[1]       ; out_data[1]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.359      ;
+; 0.243 ; mat_result[14]      ; out_data[14]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.362      ;
+; 0.243 ; mat_result[7]       ; out_data[7]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.362      ;
+; 0.248 ; mat_result[17]      ; out_data[17]~reg0   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.367      ;
 ; 0.249 ; mat_result[5]       ; out_data[5]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.368      ;
-; 0.278 ; mat_result[16]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.397      ;
-; 0.278 ; mat_result[6]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.397      ;
-; 0.278 ; mat_result[2]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.397      ;
-; 0.279 ; mat_result[15]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.398      ;
+; 0.250 ; mat_result[9]       ; out_data[9]~reg0    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.369      ;
+; 0.251 ; currState.OUTPUT    ; currState.MULTIPLY  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.370      ;
+; 0.263 ; col_1[1]            ; MAT_COL_SIZE[1]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.382      ;
+; 0.277 ; currState.MAT1_READ ; currState.MAT2_READ ; clk          ; clk         ; 0.000        ; 0.037      ; 0.396      ;
+; 0.278 ; mat_result[7]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.397      ;
 ; 0.279 ; mat_result[14]      ; mat_result[14]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.398      ;
-; 0.283 ; currState.MULTIPLY  ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.402      ;
-; 0.286 ; mat_result[7]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.405      ;
+; 0.279 ; mat_result[3]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.398      ;
+; 0.279 ; mat_result[1]       ; mat_result[1]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.398      ;
+; 0.285 ; mat_result[6]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.404      ;
+; 0.285 ; mat_result[2]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.404      ;
+; 0.286 ; mat_result[16]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.405      ;
 ; 0.286 ; mat_result[4]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.405      ;
-; 0.286 ; mat_result[3]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.405      ;
 ; 0.287 ; mat_result[19]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.406      ;
-; 0.288 ; currState.MAT2_READ ; currState.MULTIPLY  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.407      ;
-; 0.302 ; IDX[0]              ; IDX[1]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.420      ;
-; 0.309 ; ROW[0]              ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
-; 0.319 ; col_2[0]            ; col_2[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.438      ;
-; 0.330 ; COL[0]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.449      ;
-; 0.344 ; mat_result[9]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.463      ;
+; 0.287 ; mat_result[15]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.406      ;
+; 0.292 ; row_1[0]            ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.410      ;
+; 0.303 ; currState.MAT2_READ ; currState.MULTIPLY  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.422      ;
+; 0.313 ; COL[0]              ; COL[1]              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.432      ;
+; 0.317 ; currState.MAT1_READ ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.436      ;
+; 0.320 ; col_2[0]            ; col_2[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.439      ;
+; 0.325 ; currState.MAT1_READ ; VALID_MATRIX        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.444      ;
+; 0.332 ; col_1[0]            ; col_1[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.451      ;
+; 0.335 ; currState.OUTPUT    ; currState.MAT1_READ ; clk          ; clk         ; 0.000        ; 0.037      ; 0.454      ;
 ; 0.350 ; mat_result[12]      ; mat_result[12]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.469      ;
 ; 0.351 ; mat_result[18]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.470      ;
+; 0.351 ; mat_result[9]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.470      ;
 ; 0.351 ; mat_result[8]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.470      ;
-; 0.352 ; mat_result[1]       ; mat_result[1]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.471      ;
+; 0.355 ; mat_result[17]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.474      ;
 ; 0.356 ; mat_result[0]       ; mat_result[0]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.475      ;
-; 0.365 ; row_2[0]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.484      ;
-; 0.419 ; wait_one_cycle      ; col_1[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.538      ;
-; 0.422 ; mat_result[15]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.541      ;
-; 0.429 ; currState.MAT1_READ ; ROW[1]              ; clk          ; clk         ; 0.000        ; 0.035      ; 0.546      ;
-; 0.429 ; wait_one_cycle      ; col_1[0]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.548      ;
-; 0.429 ; mat_result[3]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.548      ;
-; 0.429 ; mat_result[7]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.548      ;
-; 0.431 ; mat_result[16]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.550      ;
-; 0.432 ; mat_result[6]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.551      ;
-; 0.432 ; mat_result[2]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.551      ;
-; 0.433 ; COL[0]              ; change_row~reg0     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.552      ;
+; 0.376 ; col_1[0]            ; MAT_COL_SIZE[0]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.495      ;
+; 0.397 ; currState.MULTIPLY  ; currState.OUTPUT    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.516      ;
+; 0.404 ; mat_result[12]      ; out_data[12]~reg0   ; clk          ; clk         ; 0.000        ; 0.046      ; 0.532      ;
+; 0.407 ; mat_result[6]       ; out_data[6]~reg0    ; clk          ; clk         ; 0.000        ; 0.043      ; 0.532      ;
+; 0.408 ; currState.MULTIPLY  ; IDX[0]              ; clk          ; clk         ; 0.000        ; 0.035      ; 0.525      ;
+; 0.410 ; mat_result[2]       ; out_data[2]~reg0    ; clk          ; clk         ; 0.000        ; 0.043      ; 0.535      ;
+; 0.411 ; mat_result[4]       ; out_data[4]~reg0    ; clk          ; clk         ; 0.000        ; 0.043      ; 0.536      ;
+; 0.414 ; mat_result[16]      ; out_data[16]~reg0   ; clk          ; clk         ; 0.000        ; 0.046      ; 0.542      ;
+; 0.417 ; mat_result[0]       ; out_data[0]~reg0    ; clk          ; clk         ; 0.000        ; 0.043      ; 0.542      ;
+; 0.420 ; currState.MAT2_READ ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.034      ; 0.536      ;
+; 0.421 ; mat_result[7]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.540      ;
+; 0.422 ; mat_result[1]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.541      ;
+; 0.422 ; mat_result[3]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.541      ;
+; 0.430 ; mat_result[15]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.549      ;
 ; 0.433 ; mat_result[14]      ; mat_result[15]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.552      ;
-; 0.433 ; mat_result[16]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.552      ;
-; 0.434 ; mat_result[2]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.553      ;
-; 0.434 ; mat_result[6]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.553      ;
 ; 0.435 ; mat_result[14]      ; mat_result[16]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.554      ;
-; 0.435 ; mat_result[17]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.554      ;
+; 0.439 ; mat_result[6]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.558      ;
+; 0.439 ; mat_result[2]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.558      ;
+; 0.439 ; mat_result[16]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.558      ;
 ; 0.440 ; mat_result[4]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.559      ;
+; 0.441 ; mat_result[16]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.560      ;
+; 0.441 ; mat_result[6]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.560      ;
+; 0.441 ; mat_result[2]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.560      ;
 ; 0.442 ; mat_result[4]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.561      ;
-; 0.445 ; currState.MAT1_READ ; currState.MAT2_READ ; clk          ; clk         ; 0.000        ; 0.037      ; 0.564      ;
-; 0.448 ; mat_result[13]      ; mat_result[13]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.567      ;
-; 0.480 ; mat_result[15]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.599      ;
-; 0.482 ; mat_result[15]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.601      ;
-; 0.487 ; mat_result[7]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.606      ;
-; 0.487 ; mat_result[3]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.606      ;
-; 0.489 ; mat_result[3]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.608      ;
-; 0.490 ; mat_result[9]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.034      ; 0.606      ;
-; 0.491 ; mat_result[16]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.610      ;
-; 0.492 ; mat_result[6]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.611      ;
-; 0.492 ; mat_result[2]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.611      ;
-; 0.492 ; mat_result[7]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.034      ; 0.608      ;
+; 0.447 ; mat_result[13]      ; mat_result[13]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.566      ;
+; 0.454 ; row_2[0]            ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.572      ;
+; 0.455 ; wait_one_cycle      ; ROW[0]              ; clk          ; clk         ; 0.000        ; 0.040      ; 0.577      ;
+; 0.469 ; mat_result[15]      ; out_data[15]~reg0   ; clk          ; clk         ; 0.000        ; 0.046      ; 0.597      ;
+; 0.479 ; mat_result[7]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.598      ;
+; 0.480 ; mat_result[1]       ; mat_result[3]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.599      ;
+; 0.480 ; mat_result[3]       ; mat_result[5]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.599      ;
+; 0.482 ; mat_result[1]       ; mat_result[4]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.601      ;
+; 0.482 ; mat_result[3]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.601      ;
+; 0.484 ; mat_result[7]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.034      ; 0.600      ;
+; 0.485 ; mat_result[19]      ; out_data[19]~reg0   ; clk          ; clk         ; 0.000        ; 0.046      ; 0.613      ;
+; 0.487 ; currState.OUTPUT    ; currState.OUTPUT    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.606      ;
+; 0.488 ; col_2[1]            ; change_row~reg0     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.607      ;
+; 0.488 ; mat_result[15]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.607      ;
+; 0.490 ; mat_result[15]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.609      ;
 ; 0.493 ; mat_result[14]      ; mat_result[17]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.612      ;
-; 0.494 ; mat_result[2]       ; mat_result[6]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.613      ;
-; 0.495 ; mat_result[1]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.614      ;
 ; 0.495 ; mat_result[14]      ; mat_result[18]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.614      ;
-; 0.497 ; wait_one_cycle      ; row_1[1]            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.615      ;
-; 0.497 ; mat_result[6]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.034      ; 0.613      ;
-; 0.500 ; mat_result[4]       ; mat_result[7]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.619      ;
-; 0.502 ; mat_result[4]       ; mat_result[8]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.621      ;
-; 0.503 ; currState.MAT1_READ ; valid~reg0          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.622      ;
-; 0.503 ; currState.MAT1_READ ; wait_one_cycle      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.622      ;
-; 0.503 ; mat_result[12]      ; mat_result[13]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.622      ;
-; 0.504 ; mat_result[4]       ; out_data[4]~reg0    ; clk          ; clk         ; 0.000        ; 0.043      ; 0.629      ;
-; 0.504 ; mat_result[0]       ; mat_result[1]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.623      ;
-; 0.504 ; mat_result[8]       ; mat_result[9]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.623      ;
-; 0.504 ; mat_result[18]      ; mat_result[19]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.623      ;
-; 0.505 ; mat_result[12]      ; mat_result[14]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.624      ;
-; 0.506 ; mat_result[0]       ; mat_result[2]       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.625      ;
-; 0.509 ; currState.MAT1_READ ; row_2[0]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.628      ;
-; 0.509 ; mat_result[8]       ; mat_result[10]      ; clk          ; clk         ; 0.000        ; 0.034      ; 0.625      ;
-; 0.511 ; currState.MAT1_READ ; row_2[1]            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.630      ;
-; 0.517 ; COL[1]              ; change_row~reg0     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.636      ;
 +-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -931,10 +932,10 @@ No synchronizer chains to report.
 +------------------+-----------+-------+----------+---------+---------------------+
 ; Clock            ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+-----------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -9.667    ; 0.177 ; N/A      ; N/A     ; -3.000              ;
-;  clk             ; -9.667    ; 0.177 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS  ; -1095.465 ; 0.0   ; 0.0      ; 0.0     ; -475.866            ;
-;  clk             ; -1095.465 ; 0.000 ; N/A      ; N/A     ; -475.866            ;
+; Worst-case Slack ; -9.658    ; 0.177 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -9.658    ; 0.177 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -1124.738 ; 0.0   ; 0.0      ; 0.0     ; -480.327            ;
+;  clk             ; -1124.738 ; 0.000 ; N/A      ; N/A     ; -480.327            ;
 +------------------+-----------+-------+----------+---------+---------------------+
 
 
@@ -1012,11 +1013,11 @@ No synchronizer chains to report.
 ; out_data[8]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[9]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[10]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
-; out_data[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
+; out_data[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.4e-09 V                    ; 2.39 V              ; -0.0122 V           ; 0.154 V                              ; 0.017 V                              ; 4.74e-10 s                  ; 4.5e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.4e-09 V                   ; 2.39 V             ; -0.0122 V          ; 0.154 V                             ; 0.017 V                             ; 4.74e-10 s                 ; 4.5e-10 s                  ; No                        ; Yes                       ;
 ; out_data[12]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[13]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[14]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
-; out_data[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.4e-09 V                    ; 2.39 V              ; -0.0122 V           ; 0.154 V                              ; 0.017 V                              ; 4.74e-10 s                  ; 4.5e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.4e-09 V                   ; 2.39 V             ; -0.0122 V          ; 0.154 V                             ; 0.017 V                             ; 4.74e-10 s                 ; 4.5e-10 s                  ; No                        ; Yes                       ;
+; out_data[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[16]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[17]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[18]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.4 V               ; -0.0195 V           ; 0.196 V                              ; 0.023 V                              ; 2.87e-10 s                  ; 3.09e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.4 V              ; -0.0195 V          ; 0.196 V                             ; 0.023 V                             ; 2.87e-10 s                 ; 3.09e-10 s                 ; Yes                       ; Yes                       ;
@@ -1046,11 +1047,11 @@ No synchronizer chains to report.
 ; out_data[8]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[9]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[10]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
-; out_data[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
+; out_data[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.91e-06 V                   ; 2.34 V              ; -0.0096 V           ; 0.063 V                              ; 0.023 V                              ; 6.92e-10 s                  ; 6.75e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.91e-06 V                  ; 2.34 V             ; -0.0096 V          ; 0.063 V                             ; 0.023 V                             ; 6.92e-10 s                 ; 6.75e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[12]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[13]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[14]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
-; out_data[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.91e-06 V                   ; 2.34 V              ; -0.0096 V           ; 0.063 V                              ; 0.023 V                              ; 6.92e-10 s                  ; 6.75e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.91e-06 V                  ; 2.34 V             ; -0.0096 V          ; 0.063 V                             ; 0.023 V                             ; 6.92e-10 s                 ; 6.75e-10 s                 ; Yes                       ; Yes                       ;
+; out_data[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[16]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[17]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[18]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.32e-06 V                   ; 2.35 V              ; -0.0124 V           ; 0.057 V                              ; 0.05 V                               ; 4.87e-10 s                  ; 5.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.32e-06 V                  ; 2.35 V             ; -0.0124 V          ; 0.057 V                             ; 0.05 V                              ; 4.87e-10 s                 ; 5.02e-10 s                 ; Yes                       ; Yes                       ;
@@ -1080,11 +1081,11 @@ No synchronizer chains to report.
 ; out_data[8]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[9]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[10]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
-; out_data[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
+; out_data[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.24e-09 V                   ; 2.74 V              ; -0.0529 V           ; 0.285 V                              ; 0.071 V                              ; 2.99e-10 s                  ; 3.3e-10 s                   ; No                         ; Yes                        ; 2.62 V                      ; 2.24e-09 V                  ; 2.74 V             ; -0.0529 V          ; 0.285 V                             ; 0.071 V                             ; 2.99e-10 s                 ; 3.3e-10 s                  ; No                        ; Yes                       ;
 ; out_data[12]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[13]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[14]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
-; out_data[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.24e-09 V                   ; 2.74 V              ; -0.0529 V           ; 0.285 V                              ; 0.071 V                              ; 2.99e-10 s                  ; 3.3e-10 s                   ; No                         ; Yes                        ; 2.62 V                      ; 2.24e-09 V                  ; 2.74 V             ; -0.0529 V          ; 0.285 V                             ; 0.071 V                             ; 2.99e-10 s                 ; 3.3e-10 s                  ; No                        ; Yes                       ;
+; out_data[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[16]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[17]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
 ; out_data[18]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.18e-09 V                   ; 2.74 V              ; -0.0527 V           ; 0.162 V                              ; 0.083 V                              ; 2.61e-10 s                  ; 2.44e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.18e-09 V                  ; 2.74 V             ; -0.0527 V          ; 0.162 V                             ; 0.083 V                             ; 2.61e-10 s                 ; 2.44e-10 s                 ; Yes                       ; Yes                       ;
@@ -1102,7 +1103,7 @@ No synchronizer chains to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 106362   ; 0        ; 0        ; 0        ;
+; clk        ; clk      ; 106449   ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1112,7 +1113,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 106362   ; 0        ; 0        ; 0        ;
+; clk        ; clk      ; 106449   ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1137,7 +1138,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 11    ; 11   ;
-; Unconstrained Input Port Paths  ; 598   ; 598  ;
+; Unconstrained Input Port Paths  ; 606   ; 606  ;
 ; Unconstrained Output Ports      ; 24    ; 24   ;
 ; Unconstrained Output Port Paths ; 25    ; 25   ;
 +---------------------------------+-------+------+
@@ -1260,7 +1261,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun May 05 10:15:50 2024
+    Info: Processing started: Tue May 07 18:27:59 2024
 Info: Command: quartus_sta MM -c MM
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1277,10 +1278,10 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 125C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -9.667
+Info (332146): Worst-case setup slack is -9.658
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -9.667           -1095.465 clk 
+    Info (332119):    -9.658           -1124.738 clk 
 Info (332146): Worst-case hold slack is 0.425
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1290,17 +1291,17 @@ Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -475.866 clk 
+    Info (332119):    -3.000            -480.327 clk 
 Info: Analyzing Slow 1200mV -40C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -8.224
+Info (332146): Worst-case setup slack is -8.202
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -8.224            -925.125 clk 
+    Info (332119):    -8.202            -946.792 clk 
 Info (332146): Worst-case hold slack is 0.341
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1310,15 +1311,15 @@ Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -411.630 clk 
+    Info (332119):    -3.000            -415.485 clk 
 Info: Analyzing Fast 1200mV -40C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -3.880
+Info (332146): Worst-case setup slack is -3.888
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.880            -338.547 clk 
+    Info (332119):    -3.888            -354.903 clk 
 Info (332146): Worst-case hold slack is 0.177
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1328,12 +1329,12 @@ Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -337.364 clk 
+    Info (332119):    -3.000            -340.460 clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4877 megabytes
-    Info: Processing ended: Sun May 05 10:15:53 2024
+    Info: Peak virtual memory: 4876 megabytes
+    Info: Processing ended: Tue May 07 18:28:02 2024
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:01
 
