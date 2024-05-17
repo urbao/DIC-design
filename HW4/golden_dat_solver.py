@@ -2,12 +2,19 @@ import os
 
 pattern=3 # valid option: 0, 1, 2, 3
 LENGTH=0 # Length of the pat
-path='./dat/P'+str(pattern)
 
-cmd_file=os.path.join(path, 'cmd'+str(pattern)+'.dat')
-index_file=os.path.join(path, 'index'+str(pattern)+'.dat')
-pat_file=os.path.join(path, 'pat'+str(pattern)+'.dat')
-value_file=os.path.join(path, 'value'+str(pattern)+'.dat')
+path='.\\dat\\P'+str(pattern)
+
+if pattern==3:
+    cmd_file=os.path.join(path, 'cmd.dat')
+    index_file=os.path.join(path, 'index.dat')
+    pat_file=os.path.join(path, 'pat.dat')
+    value_file=os.path.join(path, 'value.dat')
+else:
+    cmd_file=os.path.join(path, 'cmd'+str(pattern)+'.dat')
+    index_file=os.path.join(path, 'index'+str(pattern)+'.dat')
+    pat_file=os.path.join(path, 'pat'+str(pattern)+'.dat')
+    value_file=os.path.join(path, 'value'+str(pattern)+'.dat')
 
 def read_dat(cmd_file, index_file, pat_file, value_file):
     with open(cmd_file, 'r') as file:
@@ -92,14 +99,13 @@ cmd, index, pat, value=read_dat(cmd_file, index_file, pat_file, value_file)
 LENGTH=len(pat)
 pat=[string.strip() for string in pat]
 pat=[int(hex_str, 16) for hex_str in pat]
+print(f'before: {pat}')
 pat.insert(0, 10000)
 
 value=[string.strip() for string in value]
 value=[int(hex_str, 16) for hex_str in value]
 
 index = [int(binary, 10) for binary in index]
-
-print(f'before: {pat}')
 
 idx=0
 for command in cmd:
@@ -117,6 +123,7 @@ for command in cmd:
         insert_data(pat, value[idx])
         # print(f'insert: {value[idx]}/{pat}')
     elif command=='100':
+        pat.pop(0)
         print(f'after: {pat}')
     else:
         print("unrecognized command")
