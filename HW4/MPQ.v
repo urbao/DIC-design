@@ -15,9 +15,9 @@ output reg done;
 
 /*------------ Max-Priority Queue related varaibles -------------*/
 // Since the Queue of pseudo-code provided by TAs starts from index 1,
-// the Queue[0] is left unused, and  Queue[1] to Queue[255] are used
-reg [7:0] Queue[0:255]; // store input value
-reg [7:0] LENGTH; // length of Queue
+// the Q[0] is left unused, and  Q[1] to Q[255] are used
+reg [7:0] Q[0:255]; // store input value
+reg [7:0] LENGTH; // length of Q
 reg [7:0] ii;  // ii is the idx from length//2 down to 1
 reg [7:0] idx;
 reg [7:0] largest;
@@ -46,7 +46,7 @@ always @(posedge clk or posedge rst)begin
         // READ_DATA state
         if(currState==READ_DATA)begin
             if(data_valid)begin
-                Queue[LENGTH+1] <= data;
+                Q[LENGTH+1] <= data;
                 LENGTH <= LENGTH+1;
             end
             else begin
@@ -64,18 +64,18 @@ always @(posedge clk or posedge rst)begin
                 currState <= nextState;
             end
             else begin
-                if((idx << 1)<=LENGTH && Queue[idx << 1]>Queue[idx])begin
+                if((idx << 1)<=LENGTH && Q[idx << 1]>Q[idx])begin
                     largest = (idx << 1);
                 end
                 else begin
                     largest = idx;
                 end
-                if((idx << 1)+1<=LENGTH && Queue[(idx << 1)+1]>Queue[largest])begin
+                if((idx << 1)+1<=LENGTH && Q[(idx << 1)+1]>Q[largest])begin
                     largest = (idx << 1)+1;
                 end
                 if(largest!=idx)begin
-                    Queue[idx] <= Queue[largest];
-                    Queue[largest] <= Queue[idx];
+                    Q[idx] <= Q[largest];
+                    Q[largest] <= Q[idx];
                     idx <= largest;
                 end
                 else begin
@@ -87,7 +87,7 @@ always @(posedge clk or posedge rst)begin
         // EXTRACT_MAX state
         else if(currState==EXTRACT_MAX)begin
             // exchange the last node's data with root's data
-            Queue[1] <= Queue[LENGTH];
+            Q[1] <= Q[LENGTH];
             LENGTH <= LENGTH-1;
             // max-heapify again
             ii <= 1;
@@ -96,9 +96,9 @@ always @(posedge clk or posedge rst)begin
         end
         // INCREASE_VAL state
         else if(currState==INCREASE_VAL)begin
-            if(increase_idx>1 && Queue[parent_idx]<Queue[increase_idx])begin
-                Queue[parent_idx] <= Queue[increase_idx];
-                Queue[increase_idx] <= Queue[parent_idx];
+            if(increase_idx>1 && Q[parent_idx]<Q[increase_idx])begin
+                Q[parent_idx] <= Q[increase_idx];
+                Q[increase_idx] <= Q[parent_idx];
                 increase_idx <= parent_idx;
                 parent_idx <= (parent_idx >> 1);
             end
@@ -109,8 +109,16 @@ always @(posedge clk or posedge rst)begin
         end
         //  INSERT_DATA state
         else if(currState==INSERT_DATA)begin
-            
-
+            if(increase_idx>1 && Q[parent_idx]<Q[increase_idx])begin
+                Q[parent_idx] <= Q[increase_idx];
+                Q[increase_idx] <= Q[parent_idx];
+                increase_idx <= parent_idx;
+                parent_idx <= (parent_idx >> 1);
+            end
+            else begin
+                busy <= 0;
+                currState <= nextState;
+            end
         end
         // WRITE state
         else begin
@@ -123,7 +131,7 @@ always @(posedge clk or posedge rst)begin
             else begin
                 RAM_valid <= 1;
                 RAM_A <= output_idx-1; // since testbench RAM address starts from 0
-                RAM_D <= Queue[output_idx];
+                RAM_D <= Q[output_idx];
                 output_idx <= output_idx+1; 
             end
         end
@@ -134,34 +142,46 @@ end
 always @(currState)begin
     busy = 1;
     if(currState==READ_DATA)begin
+        LENGTH = LENGTH;
         increase_idx = 1;
         parent_idx = 1;
-        Queue[index] = Queue[index];
+        Q[index] = Q[index];
+        Q[LENGTH] = Q[LENGTH];
     end
     else if(currState==BUILD_QUEUE)begin
+        LENGTH = LENGTH;
         increase_idx = 1;
         parent_idx = 1;
-        Queue[index] = Queue[index];
+        Q[index] = Q[index];
+        Q[LENGTH] = Q[LENGTH];
     end
     else if(currState==EXTRACT_MAX)begin
+        LENGTH = LENGTH;
         increase_idx = 1;
         parent_idx = 1;
-        Queue[index] = Queue[index];
+        Q[index] = Q[index];
+        Q[LENGTH] = Q[LENGTH];
     end
     else if(currState==INCREASE_VAL)begin
+        LENGTH = LENGTH;
         increase_idx = index;
         parent_idx = (index >> 1);
-        Queue[index] = value;
+        Q[index] = value;
+        Q[LENGTH] = Q[LENGTH];
     end
     else if(currState==INSERT_DATA)begin
-        increase_idx = 1;
-        parent_idx = 1;
-        Queue[index] = Queue[index];
+        LENGTH = LENGTH+1;
+        increase_idx = LENGTH;
+        parent_idx = (LENGTH >> 1);
+        Q[index] = Q[index];
+        Q[LENGTH] = value;
     end
     else begin
+        LENGTH = LENGTH;
         increase_idx = 1;
         parent_idx = 1;
-        Queue[index] = Queue[index];
+        Q[index] = Q[index];
+        Q[LENGTH] = Q[LENGTH];
     end
 end
 
