@@ -21,7 +21,9 @@ reg [7:0] LENGTH; // length of Queue
 reg [7:0] ii;  // ii is the idx from length//2 down to 1
 reg [7:0] idx;
 reg [7:0] largest;
-reg [7:0] output_idx;
+reg [7:0] output_idx; // used at output state
+reg [7:0] increase_idx; // used at increase_val state
+reg [7:0] parent_idx; // used at increase_val state
 
 // FSM variable
 reg [2:0] currState, nextState;
@@ -94,7 +96,21 @@ always @(posedge clk or posedge rst)begin
         end
         // INCREASE_VAL state
         else if(currState==INCREASE_VAL)begin
+            if(increase_idx>1 && Queue[parent_idx]<Queue[increase_idx])begin
+                Queue[parent_idx] <= Queue[increase_idx];
+                Queue[increase_idx] <= Queue[parent_idx];
+                increase_idx <= parent_idx;
+                parent_idx <= (parent_idx >> 1);
+            end
+            else begin
+                busy <= 0;
+                currState <= nextState;
+            end
+        end
+        //  INSERT_DATA state
+        else if(currState==INSERT_DATA)begin
             
+
         end
         // WRITE state
         else begin
@@ -117,6 +133,36 @@ end
 // output logic
 always @(currState)begin
     busy = 1;
+    if(currState==READ_DATA)begin
+        increase_idx = 1;
+        parent_idx = 1;
+        Queue[index] = Queue[index];
+    end
+    else if(currState==BUILD_QUEUE)begin
+        increase_idx = 1;
+        parent_idx = 1;
+        Queue[index] = Queue[index];
+    end
+    else if(currState==EXTRACT_MAX)begin
+        increase_idx = 1;
+        parent_idx = 1;
+        Queue[index] = Queue[index];
+    end
+    else if(currState==INCREASE_VAL)begin
+        increase_idx = index;
+        parent_idx = (index >> 1);
+        Queue[index] = value;
+    end
+    else if(currState==INSERT_DATA)begin
+        increase_idx = 1;
+        parent_idx = 1;
+        Queue[index] = Queue[index];
+    end
+    else begin
+        increase_idx = 1;
+        parent_idx = 1;
+        Queue[index] = Queue[index];
+    end
 end
 
 // nextState logic
