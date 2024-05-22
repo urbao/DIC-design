@@ -36,6 +36,7 @@ parameter [2:0] READ_DATA=3'b000,
 always @(posedge clk or posedge rst)begin
     if(rst)begin
         LENGTH <= 0;
+        output_idx <= 1;
         currState <= READ_DATA;
         nextState <= BUILD_QUEUE;
     end
@@ -50,7 +51,6 @@ always @(posedge clk or posedge rst)begin
                 busy <= 0;
                 ii <= (LENGTH >> 1); // update ii before executing commands
                 idx <= (LENGTH >> 1);
-                output_idx <= 1;
                 currState <= nextState;
             end
         end
@@ -81,6 +81,20 @@ always @(posedge clk or posedge rst)begin
                     idx <= ii-1;
                 end 
             end
+        end
+        // EXTRACT_MAX state
+        else if(currState==EXTRACT_MAX)begin
+            // exchange the last node's data with root's data
+            Queue[1] <= Queue[LENGTH];
+            LENGTH <= LENGTH-1;
+            // max-heapify again
+            ii <= 1;
+            idx <= 1;
+            currState <= BUILD_QUEUE;
+        end
+        // INCREASE_VAL state
+        else if(currState==INCREASE_VAL)begin
+            
         end
         // WRITE state
         else begin
