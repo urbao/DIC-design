@@ -26,6 +26,8 @@ reg [7:0] idx1;
 reg [7:0] idx2;
 reg [7:0] largest;
 
+reg [7:0] right;
+reg [7:0] left;
 
 // FSM variable
 reg [2:0] currState, nextState;
@@ -41,14 +43,16 @@ parameter [2:0] READ_DATA=3'b000,
 always @(posedge clk or posedge rst)begin
     if(rst)begin
         LENGTH <= 0;
+        idx1 <= 1;
         currState <= READ_DATA;
     end
     else begin
         // READ_DATA state
         if(currState==READ_DATA)begin
             if(data_valid)begin
-                Q[LENGTH+1'b1] <= data;
+                Q[idx1] <= data;
                 LENGTH <= LENGTH+1'b1;
+                idx1 <= idx1+1'b1;
             end
             else begin
                 currState <= WAIT_CMD;
@@ -60,18 +64,18 @@ always @(posedge clk or posedge rst)begin
                 idx1 <= (LENGTH>>1);
                 idx2 <= (LENGTH>>1);
             end
-            if(nextState==INCREASE_VAL)begin
+            else if(nextState==INCREASE_VAL)begin
                 idx1 <= index;
                 idx2 <= (index>>1);
                 Q[index] <= value;
             end
-            if(nextState==INSERT_DATA)begin
+            else if(nextState==INSERT_DATA)begin
                 LENGTH <= LENGTH+1'b1;
                 idx1 <= LENGTH+1'b1;
                 idx2 <= ((LENGTH+1'b1)>>1);
                 Q[LENGTH+1'b1] <= value;
             end
-            if(nextState==WRITE)begin
+            else if(nextState==WRITE)begin
                 idx1 <= 1;
             end
             currState <= nextState;
@@ -82,14 +86,16 @@ always @(posedge clk or posedge rst)begin
                 currState <= WAIT_CMD;
             end
             else begin
-                if((idx2<<1)<=LENGTH && Q[idx2<<1]>Q[idx2])begin
-                    largest = (idx2<<1);
+                left = (idx2<<1);
+                right = (idx2<<1)+1'b1;
+                if(left<=LENGTH && Q[left]>Q[idx2])begin
+                    largest <= left;
                 end
                 else begin
-                    largest = idx2;
+                    largest <= idx2;
                 end
-                if((idx2<<1)+1'b1<=LENGTH && Q[(idx2<<1)+1'b1]>Q[largest])begin
-                    largest = (idx2<<1)+1'b1;
+                if(right<=LENGTH && Q[right]>Q[largest])begin
+                    largest <= right;
                 end
                 if(largest!=idx2)begin
                     Q[idx2] <= Q[largest];
@@ -122,6 +128,7 @@ always @(posedge clk or posedge rst)begin
                 currState <= nextState;
             end
         end
+        // INSERT_DATA state
         else if(currState==INSERT_DATA)begin
             currState <= INCREASE_VAL;
         end
