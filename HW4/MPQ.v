@@ -18,183 +18,150 @@ output reg done;
 // the Q[0] is left unused, and  Q[1] to Q[255] are used
 reg [7:0] Q[0:255]; // store input value
 reg [7:0] LENGTH; // length of Q
-reg [7:0] ii;  // ii is the idx from length//2 down to 1
-reg [7:0] idx;
+
+/*
+In order to reduce the usage of registers, I only create 3 registers, and idx1 and idx2 are shared with different states.
+*/
+reg [7:0] idx1;
+reg [7:0] idx2;
 reg [7:0] largest;
-reg [7:0] output_idx; // used at output state
-reg [7:0] increase_idx; // used at increase_val state
-reg [7:0] parent_idx; // used at increase_val state
+
 
 // FSM variable
 reg [2:0] currState, nextState;
 parameter [2:0] READ_DATA=3'b000,
-                BUILD_QUEUE=3'b001,
-                EXTRACT_MAX=3'b010,
-                INCREASE_VAL=3'b011,
-                INSERT_DATA=3'b100,
-                WRITE=3'b101;
+                WAIT_CMD=3'b001,
+                BUILD_QUEUE=3'b010,
+                EXTRACT_MAX=3'b011,
+                INCREASE_VAL=3'b100,
+                INSERT_DATA=3'b101,
+                WRITE=3'b110;
 
 // sequential circuit
 always @(posedge clk or posedge rst)begin
     if(rst)begin
         LENGTH <= 0;
-        output_idx <= 1;
         currState <= READ_DATA;
-        nextState <= BUILD_QUEUE;
     end
     else begin
         // READ_DATA state
         if(currState==READ_DATA)begin
             if(data_valid)begin
-                Q[LENGTH+1] <= data;
-                LENGTH <= LENGTH+1;
+                Q[LENGTH+1'b1] <= data;
+                LENGTH <= LENGTH+1'b1;
             end
             else begin
-                busy <= 0;
-                ii <= (LENGTH >> 1); // update ii before executing commands
-                idx <= (LENGTH >> 1);
-                currState <= nextState;
+                currState <= WAIT_CMD;
             end
+        end
+        // WAIT_CMD state
+        else if(currState==WAIT_CMD)begin
+            if(nextState==BUILD_QUEUE)begin
+                idx1 <= (LENGTH>>1);
+                idx2 <= (LENGTH>>1);
+            end
+            if(nextState==INCREASE_VAL)begin
+                idx1 <= index;
+                idx2 <= (index>>1);
+                Q[index] <= value;
+            end
+            if(nextState==INSERT_DATA)begin
+                LENGTH <= LENGTH+1'b1;
+                idx1 <= LENGTH+1'b1;
+                idx2 <= ((LENGTH+1'b1)>>1);
+                Q[LENGTH+1'b1] <= value;
+            end
+            if(nextState==WRITE)begin
+                idx1 <= 1;
+            end
+            currState <= nextState;
         end
         // BUILD_QUEUE state
         else if(currState==BUILD_QUEUE)begin
-            // end the build queue process
-            if(ii==0)begin
-                busy <= 0;
-                currState <= nextState;
+            if(idx1==0)begin
+                currState <= WAIT_CMD;
             end
             else begin
-                if((idx << 1)<=LENGTH && Q[idx << 1]>Q[idx])begin
-                    largest = (idx << 1);
+                if((idx2<<1)<=LENGTH && Q[idx2<<1]>Q[idx2])begin
+                    largest = (idx2<<1);
                 end
                 else begin
-                    largest = idx;
+                    largest = idx2;
                 end
-                if((idx << 1)+1<=LENGTH && Q[(idx << 1)+1]>Q[largest])begin
-                    largest = (idx << 1)+1;
+                if((idx2<<1)+1'b1<=LENGTH && Q[(idx2<<1)+1'b1]>Q[largest])begin
+                    largest = (idx2<<1)+1'b1;
                 end
-                if(largest!=idx)begin
-                    Q[idx] <= Q[largest];
-                    Q[largest] <= Q[idx];
-                    idx <= largest;
+                if(largest!=idx2)begin
+                    Q[idx2] <= Q[largest];
+                    Q[largest] <= Q[idx2];
+                    idx2 <= largest;
                 end
                 else begin
-                    ii <= ii-1;
-                    idx <= ii-1;
-                end 
+                    idx1 <= idx1-1'b1;
+                    idx2 <= idx1-1'b1;
+                end
             end
         end
         // EXTRACT_MAX state
         else if(currState==EXTRACT_MAX)begin
-            // exchange the last node's data with root's data
             Q[1] <= Q[LENGTH];
-            LENGTH <= LENGTH-1;
-            // max-heapify again
-            ii <= 1;
-            idx <= 1;
+            LENGTH <= LENGTH-1'b1;
+            idx1 <= 1;
+            idx2 <= 1;
             currState <= BUILD_QUEUE;
         end
         // INCREASE_VAL state
         else if(currState==INCREASE_VAL)begin
-            if(increase_idx>1 && Q[parent_idx]<Q[increase_idx])begin
-                Q[parent_idx] <= Q[increase_idx];
-                Q[increase_idx] <= Q[parent_idx];
-                increase_idx <= parent_idx;
-                parent_idx <= (parent_idx >> 1);
+            if(idx1>1 && Q[idx2]<Q[idx1])begin
+                Q[idx2] <= Q[idx1];
+                Q[idx1] <= Q[idx2];
+                idx1 <= idx2;
+                idx2 <= (idx2>>1);
             end
             else begin
-                busy <= 0;
                 currState <= nextState;
             end
         end
-        //  INSERT_DATA state
         else if(currState==INSERT_DATA)begin
-            if(increase_idx>1 && Q[parent_idx]<Q[increase_idx])begin
-                Q[parent_idx] <= Q[increase_idx];
-                Q[increase_idx] <= Q[parent_idx];
-                increase_idx <= parent_idx;
-                parent_idx <= (parent_idx >> 1);
-            end
-            else begin
-                busy <= 0;
-                currState <= nextState;
-            end
+            currState <= INCREASE_VAL;
         end
         // WRITE state
         else begin
-            if(output_idx>LENGTH)begin
-                busy <= 0;
+            if(idx1>LENGTH)begin
                 done <= 1;
                 RAM_valid <= 0;
-                currState <= nextState;
+                currState <= WAIT_CMD;
             end
             else begin
                 RAM_valid <= 1;
-                RAM_A <= output_idx-1; // since testbench RAM address starts from 0
-                RAM_D <= Q[output_idx];
-                output_idx <= output_idx+1; 
+                RAM_A <= idx1-1'b1;
+                RAM_D <= Q[idx1];
+                idx1 <= idx1+1'b1;
             end
         end
     end
 end
 
-// output logic
 always @(currState)begin
-    busy = 1;
-    if(currState==READ_DATA)begin
-        LENGTH = LENGTH;
-        increase_idx = 1;
-        parent_idx = 1;
-        Q[index] = Q[index];
-        Q[LENGTH] = Q[LENGTH];
-    end
-    else if(currState==BUILD_QUEUE)begin
-        LENGTH = LENGTH;
-        increase_idx = 1;
-        parent_idx = 1;
-        Q[index] = Q[index];
-        Q[LENGTH] = Q[LENGTH];
-    end
-    else if(currState==EXTRACT_MAX)begin
-        LENGTH = LENGTH;
-        increase_idx = 1;
-        parent_idx = 1;
-        Q[index] = Q[index];
-        Q[LENGTH] = Q[LENGTH];
-    end
-    else if(currState==INCREASE_VAL)begin
-        LENGTH = LENGTH;
-        increase_idx = index;
-        parent_idx = (index >> 1);
-        Q[index] = value;
-        Q[LENGTH] = Q[LENGTH];
-    end
-    else if(currState==INSERT_DATA)begin
-        LENGTH = LENGTH+1;
-        increase_idx = LENGTH;
-        parent_idx = (LENGTH >> 1);
-        Q[index] = Q[index];
-        Q[LENGTH] = value;
+    if(currState==WAIT_CMD)begin
+        busy = 0;
     end
     else begin
-        LENGTH = LENGTH;
-        increase_idx = 1;
-        parent_idx = 1;
-        Q[index] = Q[index];
-        Q[LENGTH] = Q[LENGTH];
+        busy = 1;
     end
 end
 
+
 // nextState logic
-always @(cmd)begin
+always @(*)begin
     if(cmd_valid==1)begin
         case (cmd)
-        3'b000: nextState = BUILD_QUEUE;
-        3'b001: nextState = EXTRACT_MAX;
-        3'b010: nextState = INCREASE_VAL;
-        3'b011: nextState = INSERT_DATA;
-        3'b100: nextState = WRITE;
-        default: nextState = BUILD_QUEUE;
+            3'b000: nextState = BUILD_QUEUE;
+            3'b001: nextState = EXTRACT_MAX;
+            3'b010: nextState = INCREASE_VAL;
+            3'b011: nextState = INSERT_DATA;
+            3'b100: nextState = WRITE;
+            default: nextState = BUILD_QUEUE;
         endcase
     end
     else nextState = BUILD_QUEUE;
