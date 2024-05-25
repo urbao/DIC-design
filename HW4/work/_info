@@ -1,0 +1,105 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/20.1
+vhard_block
+Z0 !s110 1716630735
+!i10b 1
+!s100 2G;_93on1JQeeZ3G@Q3hF3
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I?EC0XmZ6fS_<ge38=bkTi1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/User/Desktop/DIC-design/HW4
+Z4 w1716630532
+Z5 8C:/Users/User/Desktop/DIC-design/HW4/MPQ.vo
+Z6 FC:/Users/User/Desktop/DIC-design/HW4/MPQ.vo
+!i122 618
+L0 328186 34
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1716630734.000000
+Z9 !s107 C:/Users/User/Desktop/DIC-design/HW4/MPQ.vo|
+Z10 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW4/MPQ.vo|
+!i113 1
+Z11 o-work work
+Z12 tCvgOpt 0
+vMPQ
+R0
+!i10b 1
+!s100 S27:kj@_;<lYk[J5A:33C1
+R1
+I34A=;jN7gTAf@8mW@4IRY1
+R2
+R3
+R4
+R5
+R6
+!i122 618
+L0 32 328153
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+n@m@p@q
+vRAM
+Z13 !s110 1716630837
+!i10b 1
+!s100 :Hzjl5Ha3YN41PQd@7Bic1
+R1
+Ic:K88mN9Ok>FKg2=6C1[M1
+R2
+R3
+Z14 w1716630533
+Z15 8testfixture.v
+Z16 Ftestfixture.v
+!i122 622
+L0 215 17
+R7
+r1
+!s85 0
+31
+Z17 !s108 1716630837.000000
+!s107 testfixture.v|
+Z18 !s90 -reportprogress|300|testfixture.v|+define+P3|
+!i113 1
+Z19 !s92 +define+P3
+R12
+n@r@a@m
+vtest
+R13
+!i10b 1
+!s100 7LdhF;R2?XPeMCSQ24T2_2
+R1
+Ih4KR`9?f4zQHzY>QN8]4C0
+R2
+R3
+R14
+R15
+R16
+!i122 622
+L0 48 164
+R7
+r1
+!s85 0
+31
+R17
+Z20 !s107 testfixture.v|
+R18
+!i113 1
+R19
+R12

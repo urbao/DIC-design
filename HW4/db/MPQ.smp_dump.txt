@@ -1,0 +1,11 @@
+
+State Machine - |MPQ|currState
+Name currState.WRITE currState.INSERT_DATA currState.INCREASE_VAL currState.EXTRACT_MAX currState.BUILD_QUEUE_2 currState.BUILD_QUEUE_1 currState.WAIT_CMD currState.READ_DATA 
+currState.READ_DATA 0 0 0 0 0 0 0 0 
+currState.WAIT_CMD 0 0 0 0 0 0 1 1 
+currState.BUILD_QUEUE_1 0 0 0 0 0 1 0 1 
+currState.BUILD_QUEUE_2 0 0 0 0 1 0 0 1 
+currState.EXTRACT_MAX 0 0 0 1 0 0 0 1 
+currState.INCREASE_VAL 0 0 1 0 0 0 0 1 
+currState.INSERT_DATA 0 1 0 0 0 0 0 1 
+currState.WRITE 1 0 0 0 0 0 0 1 

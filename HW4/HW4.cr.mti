@@ -1,0 +1,16 @@
+C:/Users/User/Desktop/DIC-design/HW4/MPQ.vo {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW4/MPQ.vo
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MPQ
+-- Compiling module hard_block
+
+Top level modules:
+	MPQ
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW4/MPQ.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW4/MPQ.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MPQ
+
+Top level modules:
+	MPQ
+
+} {} {}}
