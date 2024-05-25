@@ -33,21 +33,25 @@ reg [7:0] left;
 reg [2:0] currState, nextState;
 parameter [2:0] READ_DATA=3'b000,
                 WAIT_CMD=3'b001,
-                BUILD_QUEUE=3'b010,
-                EXTRACT_MAX=3'b011,
-                INCREASE_VAL=3'b100,
-                INSERT_DATA=3'b101,
-                WRITE=3'b110;
+                BUILD_QUEUE_1=3'b010,
+                BUILD_QUEUE_2=3'b011,
+                EXTRACT_MAX=3'b100,
+                INCREASE_VAL=3'b101,
+                INSERT_DATA=3'b110,
+                WRITE=3'b111;
 
 // sequential circuit
-always @(posedge clk or posedge rst)begin
+always @(posedge clk or posedge rst) begin
     if(rst)begin
         LENGTH <= 0;
         idx1 <= 1;
+        done <= 0;
+        RAM_A <= 0;
+        RAM_D <= 0;
         currState <= READ_DATA;
     end
     else begin
-        // READ_DATA state
+        // READ_DATA
         if(currState==READ_DATA)begin
             if(data_valid)begin
                 Q[idx1] <= data;
@@ -55,14 +59,20 @@ always @(posedge clk or posedge rst)begin
                 idx1 <= idx1+1'b1;
             end
             else begin
-                currState <= WAIT_CMD;
+                currState <= nextState;
             end
         end
-        // WAIT_CMD state
+        // WAIT_CMD
         else if(currState==WAIT_CMD)begin
-            if(nextState==BUILD_QUEUE)begin
+            if(nextState==BUILD_QUEUE_1)begin
                 idx1 <= (LENGTH>>1);
                 idx2 <= (LENGTH>>1);
+            end
+            else if(nextState==EXTRACT_MAX)begin
+                Q[1] <= Q[LENGTH];
+                LENGTH <= LENGTH-1'b1;
+                idx1 <= 1;
+                idx2 <= 1;
             end
             else if(nextState==INCREASE_VAL)begin
                 idx1 <= index;
@@ -70,53 +80,53 @@ always @(posedge clk or posedge rst)begin
                 Q[index] <= value;
             end
             else if(nextState==INSERT_DATA)begin
-                LENGTH <= LENGTH+1'b1;
                 idx1 <= LENGTH+1'b1;
-                idx2 <= ((LENGTH+1'b1)>>1);
+                idx2 <= (LENGTH+1'b1)>>1;
+                LENGTH <= LENGTH+1'b1;
                 Q[LENGTH+1'b1] <= value;
             end
             else if(nextState==WRITE)begin
                 idx1 <= 1;
             end
+            else begin
+                done <= 0;
+            end
             currState <= nextState;
         end
-        // BUILD_QUEUE state
-        else if(currState==BUILD_QUEUE)begin
+        else if(currState==BUILD_QUEUE_1)begin
             if(idx1==0)begin
-                currState <= WAIT_CMD;
+                currState <= nextState;
             end
             else begin
-                left = (idx2<<1);
+                left = idx2<<1;
                 right = (idx2<<1)+1'b1;
+                largest = idx2;
                 if(left<=LENGTH && Q[left]>Q[idx2])begin
-                    largest <= left;
-                end
-                else begin
-                    largest <= idx2;
+                    largest = left;
                 end
                 if(right<=LENGTH && Q[right]>Q[largest])begin
-                    largest <= right;
+                    largest = right;
                 end
-                if(largest!=idx2)begin
-                    Q[idx2] <= Q[largest];
-                    Q[largest] <= Q[idx2];
-                    idx2 <= largest;
-                end
-                else begin
-                    idx1 <= idx1-1'b1;
-                    idx2 <= idx1-1'b1;
-                end
+                currState <= BUILD_QUEUE_2;
             end
         end
-        // EXTRACT_MAX state
-        else if(currState==EXTRACT_MAX)begin
-            Q[1] <= Q[LENGTH];
-            LENGTH <= LENGTH-1'b1;
-            idx1 <= 1;
-            idx2 <= 1;
-            currState <= BUILD_QUEUE;
+        else if(currState==BUILD_QUEUE_2)begin
+            if(largest!=idx2)begin
+                Q[idx2] <= Q[largest];
+                Q[largest] <= Q[idx2];
+                idx2 <= largest;
+            end
+            else begin
+                idx1 <= idx1-1'b1;
+                idx2 <= idx1-1'b1;
+            end
+            currState <= BUILD_QUEUE_1;
         end
-        // INCREASE_VAL state
+        // EXTRACT_MAX
+        else if(currState==EXTRACT_MAX)begin
+            currState <= BUILD_QUEUE_1;
+        end
+        // INCREASE_VAL
         else if(currState==INCREASE_VAL)begin
             if(idx1>1 && Q[idx2]<Q[idx1])begin
                 Q[idx2] <= Q[idx1];
@@ -128,16 +138,17 @@ always @(posedge clk or posedge rst)begin
                 currState <= nextState;
             end
         end
-        // INSERT_DATA state
+        // INSERT_DATA
         else if(currState==INSERT_DATA)begin
-            currState <= INCREASE_VAL;
+            currState <= INCREASE_VAL;  
         end
-        // WRITE state
+        // WRITE
         else begin
+            // $display("write", Q[0], Q[1], Q[2], Q[3], Q[4], Q[5], Q[6], Q[7], Q[8], Q[9], Q[10], Q[11], Q[12]);
             if(idx1>LENGTH)begin
                 done <= 1;
                 RAM_valid <= 0;
-                currState <= WAIT_CMD;
+                currState <= nextState;
             end
             else begin
                 RAM_valid <= 1;
@@ -149,7 +160,8 @@ always @(posedge clk or posedge rst)begin
     end
 end
 
-always @(currState)begin
+// output logic
+always @(*)begin
     if(currState==WAIT_CMD)begin
         busy = 0;
     end
@@ -158,20 +170,31 @@ always @(currState)begin
     end
 end
 
-
 // nextState logic
 always @(*)begin
-    if(cmd_valid==1)begin
-        case (cmd)
-            3'b000: nextState = BUILD_QUEUE;
-            3'b001: nextState = EXTRACT_MAX;
-            3'b010: nextState = INCREASE_VAL;
-            3'b011: nextState = INSERT_DATA;
-            3'b100: nextState = WRITE;
-            default: nextState = BUILD_QUEUE;
-        endcase
+    if(cmd_valid)begin
+        if(cmd==3'b000)begin
+            nextState = BUILD_QUEUE_1;
+        end
+        else if(cmd==3'b001)begin
+            nextState = EXTRACT_MAX;
+        end
+        else if(cmd==3'b010)begin
+            nextState = INCREASE_VAL;
+        end
+        else if(cmd==3'b011)begin
+            nextState = INSERT_DATA;
+        end
+        else if(cmd==3'b100)begin
+            nextState = WRITE;
+        end
+        else begin
+            nextState = BUILD_QUEUE_1;
+        end
     end
-    else nextState = BUILD_QUEUE;
+    else begin
+        nextState = WAIT_CMD;
+    end
 end
 
 endmodule
