@@ -93,6 +93,7 @@ always @(posedge clk or posedge rst) begin
             end
             currState <= nextState;
         end
+        // BUILD_QUEUE_1
         else if(currState==BUILD_QUEUE_1)begin
             if(idx1==0)begin
                 currState <= nextState;
@@ -110,6 +111,7 @@ always @(posedge clk or posedge rst) begin
                 currState <= BUILD_QUEUE_2;
             end
         end
+        // BUILD_QUEUE_2
         else if(currState==BUILD_QUEUE_2)begin
             if(largest!=idx2)begin
                 Q[idx2] <= Q[largest];
@@ -144,7 +146,6 @@ always @(posedge clk or posedge rst) begin
         end
         // WRITE
         else begin
-            // $display("write", Q[0], Q[1], Q[2], Q[3], Q[4], Q[5], Q[6], Q[7], Q[8], Q[9], Q[10], Q[11], Q[12]);
             if(idx1>LENGTH)begin
                 done <= 1;
                 RAM_valid <= 0;
