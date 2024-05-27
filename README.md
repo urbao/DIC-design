@@ -4,4 +4,4 @@
 - HW 2: Check-In & Pick-Up(CIPU) System(FIFO|LIFO)
 - HW 3: Matrix Multiplier(including Synthesis)
 - HW 4: Max-Priority Queue(including Synthesis)
-- HW 5(Final Project): 
+- HW 5: Advanced Encryption Standard(AES)(inclduing Synthesis) 

@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon May 27 13:48:22 2024
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : AES
+Top-level Entity Name : AES
+Family : Cyclone IV E
+Device : EP4CE75F29C8
+Timing Models : Final
+Total logic elements : 0 / 75,408 ( 0 % )
+    Total combinational functions : 0 / 75,408 ( 0 % )
+    Dedicated logic registers : 0 / 75,408 ( 0 % )
+Total registers : 0
+Total pins : 387 / 427 ( 91 % )
+Total virtual pins : 0
+Total memory bits : 0 / 2,810,880 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 400 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
