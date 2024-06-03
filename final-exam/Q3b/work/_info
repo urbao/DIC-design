@@ -1,0 +1,82 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/User/Desktop/DIC-design/final-exam/Q3a
+vMPQ
+Z0 !s110 1717387467
+!i10b 1
+!s100 9@LC291]MjP5G0L[NGAak0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IFiM7P1nASjFg=<EF<9Z3n3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/User/Desktop/DIC-design/final-exam/Q3b
+w1717387430
+8C:/Users/User/Desktop/DIC-design/final-exam/Q3b/MPQ.v
+FC:/Users/User/Desktop/DIC-design/final-exam/Q3b/MPQ.v
+!i122 0
+L0 1 209
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1717387467.000000
+!s107 C:/Users/User/Desktop/DIC-design/final-exam/Q3b/MPQ.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/final-exam/Q3b/MPQ.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@m@p@q
+vRAM
+R0
+!i10b 1
+!s100 ^<R[zYh9e[eD2]TG=T5762
+R1
+I[mYSlNRO9X]FM8[7FJdak3
+R2
+R3
+Z8 w1717380065
+Z9 8C:/Users/User/Desktop/DIC-design/final-exam/Q3b/testfixture.v
+Z10 FC:/Users/User/Desktop/DIC-design/final-exam/Q3b/testfixture.v
+!i122 1
+L0 181 17
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/DIC-design/final-exam/Q3b/testfixture.v|
+Z11 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/final-exam/Q3b/testfixture.v|
+!i113 1
+R6
+R7
+n@r@a@m
+vtest
+R0
+!i10b 1
+!s100 `gFm43f2zK1T>Wo7a:E^;1
+R1
+IBemW?0Ko_g<`Jm[SNHCWU1
+R2
+R3
+R8
+R9
+R10
+!i122 1
+L0 14 164
+R4
+r1
+!s85 0
+31
+R5
+Z12 !s107 C:/Users/User/Desktop/DIC-design/final-exam/Q3b/testfixture.v|
+R11
+!i113 1
+R6
+R7

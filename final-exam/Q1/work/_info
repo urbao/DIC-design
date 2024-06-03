@@ -1,0 +1,58 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/20.1
+vMM
+Z0 !s110 1717385944
+!i10b 1
+!s100 ;CKCcXDEH?O@g>U4zhLN_0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IeO]7zX:C:QS_VLc7eWXIX0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/User/Desktop/DIC-design/final-exam/Q1
+w1717385941
+8C:/Users/User/Desktop/DIC-design/final-exam/Q1/MM.v
+FC:/Users/User/Desktop/DIC-design/final-exam/Q1/MM.v
+!i122 95
+L0 2 204
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1717385944.000000
+!s107 C:/Users/User/Desktop/DIC-design/final-exam/Q1/MM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/final-exam/Q1/MM.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@m@m
+vtestfixture1
+R0
+!i10b 1
+!s100 4`akDPb<8>0[Ig;m>9S3A0
+R1
+IC9R7AU6GNK>ZY<I2kToZR1
+R2
+R3
+w1717385769
+8C:/Users/User/Desktop/DIC-design/final-exam/Q1/testfixture.v
+FC:/Users/User/Desktop/DIC-design/final-exam/Q1/testfixture.v
+!i122 96
+L0 7 300
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/DIC-design/final-exam/Q1/testfixture.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/final-exam/Q1/testfixture.v|
+!i113 1
+R6
+R7

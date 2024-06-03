@@ -1,0 +1,8 @@
+C:/Users/User/Desktop/DIC-design/final-exam/Q1/testfixture.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/final-exam/Q1/testfixture.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module testfixture1
+
+Top level modules:
+	testfixture1
+
+} {} {}}
