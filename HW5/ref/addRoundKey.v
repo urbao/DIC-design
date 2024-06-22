@@ -3,11 +3,10 @@
 module addRoundKey(
     input [127:0] state,
     input [127:0] key,
-    output reg [127:0] out
+    output [127:0] out
 );
 
-always @* begin
-    out = state ^ key;
-end
+assign out = state ^ key;
+
 
 endmodule

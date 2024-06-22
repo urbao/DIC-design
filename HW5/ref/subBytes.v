@@ -5,7 +5,7 @@ module subBytes (
 
 genvar idx;
 generate
-    for(idx=0;idx<128;idx=idx+8)begin
+    for(idx=0;idx<128;idx=idx+8)begin:sbox_subbytes
         sBox sb(.in(sub_in[idx +: 8]), .out(sub_out[idx +: 8]));
     end
 endgenerate

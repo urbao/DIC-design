@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
-`define CYCLE      15
-`define End_CYCLE  1000
+`define CYCLE      8.5
+`define End_CYCLE  100000
 
 module tb();
 
@@ -58,6 +58,7 @@ always @(posedge clk) begin
         
         if(valid)begin
             if(C_data[ans_cnt]==C)begin
+                $display("correct count: ", correct);
                 correct = correct + 1;
             end
             else begin

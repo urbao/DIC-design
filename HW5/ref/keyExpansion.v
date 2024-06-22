@@ -4,9 +4,9 @@ module keyExpansion (
     output [127:0] key_out
 );
 
-reg [31:0] afterSW; // save result after subWords
-reg [31:0] afterRW; // save result after rotWords
-reg [31:0] afterRC; // save result after rConv
+wire [31:0] afterSW; // save result after subWords
+wire [31:0] afterRW; // save result after rotWords
+wire [31:0] afterRC; // save result after rConv
 
 
 assign afterRW = rotWord(key_in[31:0]);

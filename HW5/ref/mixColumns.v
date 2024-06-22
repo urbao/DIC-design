@@ -6,11 +6,7 @@ module mixColumns (
 // do the matrix multiplication
 genvar i;
 generate
-    for(i=0;i<4;i=i+1)begin
-        // assign mix_out[(i*32) +: 8]    = mult_2(mix_in[(i*32) +: 8]) ^ mult_3(mix_in[(i*32)+8 +: 8]) ^ mix_in[(i*32)+16 +: 8] ^ mix_in[(i*32)+24 +: 8]; // 2 3 1 1
-        // assign mix_out[(i*32)+8 +: 8]  = mix_in[(i*32) +: 8] ^ mult_2(mix_in[(i*32)+8 +: 8]) ^ mult_3(mix_in[(i*32)+16 +: 8]) ^ mix_in[(i*32)+24 +: 8]; // 1 2 3 1
-        // assign mix_out[(i*32)+16 +: 8] = mix_in[(i*32) +: 8] ^ mix_in[(i*32)+8 +: 8] ^ mult_2(mix_in[(i*32)+16 +: 8]) ^ mult_3(mix_in[(i*32)+24 +: 8]); // 1 1 2 3
-        // assign mix_out[(i*32)+24 +: 8] = mult_3(mix_in[(i*32) +: 8]) ^ mix_in[(i*32)+8 +: 8] ^ mix_in[(i*32)+16 +: 8] ^ mult_2(mix_in[(i*32)+24 +: 8]); // 3 1 1 2
+    for(i=0;i<4;i=i+1)begin:mix_columns
         assign mix_out[(i*32 + 24)+:8]= mult_2(mix_in[(i*32 + 24)+:8]) ^ mult_3(mix_in[(i*32 + 16)+:8]) ^ mix_in[(i*32 + 8)+:8] ^ mix_in[i*32+:8];
         assign mix_out[(i*32 + 16)+:8]= mix_in[(i*32 + 24)+:8] ^ mult_2(mix_in[(i*32 + 16)+:8]) ^ mult_3(mix_in[(i*32 + 8)+:8]) ^ mix_in[i*32+:8];
         assign mix_out[(i*32 + 8)+:8]= mix_in[(i*32 + 24)+:8] ^ mix_in[(i*32 + 16)+:8] ^ mult_2(mix_in[(i*32 + 8)+:8]) ^ mult_3(mix_in[i*32+:8]);
