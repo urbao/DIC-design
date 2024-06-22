@@ -9,42 +9,353 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/User/Desktop/DIC-design/HW3
-vAES
-Z0 !s110 1716787858
+vaddRoundKey
+Z0 !s110 1719066351
 !i10b 1
-!s100 kiQnCk<Zj<]YzI`[nYjJX3
+!s100 W>c6XB[V5l=g4COZ`LFgG0
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IaAzIk`ng1_aHlE5RHcCLX2
+I`F2n?;Qe;9QIYn0e>3al:2
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dC:/Users/User/Desktop/DIC-design/HW5/ref
-w1716787608
-8C:/Users/User/Desktop/DIC-design/HW5/ref/AES.v
-FC:/Users/User/Desktop/DIC-design/HW5/ref/AES.v
-!i122 3
-L0 4 13
+w1719065754
+8C:/Users/User/Desktop/DIC-design/HW5/ref/addRoundKey.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/addRoundKey.v
+!i122 640
+L0 3 11
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1716787858.000000
-!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/AES.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/AES.v|
+Z5 !s108 1719066351.000000
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/addRoundKey.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/addRoundKey.v|
 !i113 1
 Z6 o-work work
 Z7 tCvgOpt 0
+nadd@round@key
+vAES
+R0
+!i10b 1
+!s100 _E];Rd:XIA?Q1ljW9i]AA3
+R1
+Ize:SFFHjWzPWXEH=>bS6V0
+R2
+R3
+w1719066348
+8C:/Users/User/Desktop/DIC-design/HW5/ref/AES.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/AES.v
+!i122 638
+L0 4 49
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/AES.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/AES.v|
+!i113 1
+R6
+R7
 n@a@e@s
+vkeyExpansion
+R0
+!i10b 1
+!s100 LQEYIX?@iYJET^RLNQD5[2
+R1
+I[CRcTh=WhP7]jeZWk7aZ;1
+R2
+R3
+w1719065420
+8C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion.v
+!i122 641
+L0 1 96
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion.v|
+!i113 1
+R6
+R7
+nkey@expansion
+vkeyExpansion_tb
+Z8 !s110 1719066352
+!i10b 1
+!s100 `5cBk@[m9Z4FJA4@hcL7Q3
+R1
+IG5BP<Ym2g;W<nBcfIo9=T1
+R2
+R3
+w1719065691
+8C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion_tb.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion_tb.v
+!i122 648
+L0 1 16
+R4
+r1
+!s85 0
+31
+Z9 !s108 1719066352.000000
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion_tb.v|
+!i113 1
+R6
+R7
+nkey@expansion_tb
+vlastRound
+R8
+!i10b 1
+!s100 oW?;b;=_CP3HELRSz2[DB0
+R1
+I]Rm[MGRaAWm]QzBMT01^^2
+R2
+R3
+w1719058696
+8C:/Users/User/Desktop/DIC-design/HW5/ref/lastRound.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/lastRound.v
+!i122 646
+L0 1 18
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/lastRound.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/lastRound.v|
+!i113 1
+R6
+R7
+nlast@round
+vmixColumns
+R8
+!i10b 1
+!s100 0jZ>I^>^IUL3@C;2iLiR<3
+R1
+I23bkNkKA^EGiO@lS=h^`J0
+R2
+R3
+w1719065334
+8C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns.v
+!i122 642
+L0 1 37
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns.v|
+!i113 1
+R6
+R7
+nmix@columns
+vmixColumns_tb
+R8
+!i10b 1
+!s100 Q_B4VLL0]X1DHgY_nVkFh2
+R1
+IdW]z?IYXJYeobW;od_20>3
+R2
+R3
+w1719065170
+8C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns_tb.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns_tb.v
+!i122 649
+Z10 L0 1 14
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns_tb.v|
+!i113 1
+R6
+R7
+nmix@columns_tb
+vnine_round
+!s110 1719048456
+!i10b 1
+!s100 _b@K[HUoULU<KWYWCLPYf1
+R1
+IR`llnc0kI0m<COgU_o1Jf3
+R2
+R3
+w1718947906
+8C:/Users/User/Desktop/DIC-design/HW5/ref/nine_round.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/nine_round.v
+!i122 127
+L0 1 12
+R4
+r1
+!s85 0
+31
+!s108 1719048456.000000
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/nine_round.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/nine_round.v|
+!i113 1
+R6
+R7
+vnineRound
+R8
+!i10b 1
+!s100 j1EcWh@JDV<bQ7czCgM=63
+R1
+I5ML431mnMoH6m:?mf_WQV1
+R2
+R3
+w1719058106
+8C:/Users/User/Desktop/DIC-design/HW5/ref/nineRound.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/nineRound.v
+!i122 647
+L0 1 20
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/nineRound.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/nineRound.v|
+!i113 1
+R6
+R7
+nnine@round
+vsBox
+R8
+!i10b 1
+!s100 fAN_U67TAganPJ94jzgoe3
+R1
+In1V<VIm35m5JdlMYBC4413
+R2
+R3
+w1718948930
+8C:/Users/User/Desktop/DIC-design/HW5/ref/sBox.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/sBox.v
+!i122 643
+L0 1 43
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/sBox.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/sBox.v|
+!i113 1
+R6
+R7
+ns@box
+vshiftRows
+R8
+!i10b 1
+!s100 a@5Jh5ID6BKGf=>^]jdB51
+R1
+IgR:E2T`QEiU2mRB7Gc:=g2
+R2
+R3
+w1719065084
+8C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows.v
+!i122 644
+L0 1 29
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows.v|
+!i113 1
+R6
+R7
+nshift@rows
+vshiftRows_tb
+R8
+!i10b 1
+!s100 ?PDmX2i8HIPOg[@Ii>>IW3
+R1
+ImFkR_?XiJ1;NnR7HY?Gf_3
+R2
+R3
+w1719064857
+8C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows_tb.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows_tb.v
+!i122 650
+R10
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows_tb.v|
+!i113 1
+R6
+R7
+nshift@rows_tb
+vsubBytes
+R8
+!i10b 1
+!s100 =@e;akNZ`GGVIZCX;Hf;D1
+R1
+I:0GFJ[i>l9MJ33Wn2dFG40
+R2
+R3
+w1719064713
+8C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/subBytes.v
+!i122 645
+L0 1 13
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes.v|
+!i113 1
+R6
+R7
+nsub@bytes
+vsubBytes_tb
+R8
+!i10b 1
+!s100 GO_oHlBoJFWT8UBRbcQki1
+R1
+Iim`JDWD>QOcQQ]zKOa7;Q1
+R2
+R3
+w1719064767
+8C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes_tb.v
+FC:/Users/User/Desktop/DIC-design/HW5/ref/subBytes_tb.v
+!i122 651
+L0 1 11
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes_tb.v|
+!i113 1
+R6
+R7
+nsub@bytes_tb
 vtb
 R0
 !i10b 1
-!s100 D8o5mVnZjLg?2k]Gm80bG1
+!s100 ]a2di5D2_6R`oQB=b^eC61
 R1
-IS=T[J^jK6QS5b6KAKN^g42
+I@C]EdENb3zQVg]Z7IjGbo3
 R2
 R3
-w1716787373
+w1718869802
 8C:/Users/User/Desktop/DIC-design/HW5/ref/tb.v
 FC:/Users/User/Desktop/DIC-design/HW5/ref/tb.v
-!i122 4
+!i122 639
 L0 5 97
 R4
 r1

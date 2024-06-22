@@ -1,9 +1,65 @@
-C:/Users/User/Desktop/DIC-design/HW5/ref/AES.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/AES.v
+C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns_tb.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module AES
+-- Compiling module mixColumns_tb
 
 Top level modules:
-	AES
+	mixColumns_tb
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/sBox.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/sBox.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sBox
+
+Top level modules:
+	sBox
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows_tb.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module shiftRows_tb
+
+Top level modules:
+	shiftRows_tb
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes_tb.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module subBytes_tb
+
+Top level modules:
+	subBytes_tb
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/addRoundKey.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/addRoundKey.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module addRoundKey
+
+Top level modules:
+	addRoundKey
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/nineRound.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/nineRound.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module nineRound
+
+Top level modules:
+	nineRound
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion_tb.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module keyExpansion_tb
+
+Top level modules:
+	keyExpansion_tb
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/lastRound.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/lastRound.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lastRound
+
+Top level modules:
+	lastRound
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/keyExpansion.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module keyExpansion
+
+Top level modules:
+	keyExpansion
 
 } {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/tb.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -11,5 +67,26 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	tb
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/mixColumns.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mixColumns
+
+Top level modules:
+	mixColumns
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/shiftRows.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module shiftRows
+
+Top level modules:
+	shiftRows
+
+} {} {}} C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/DIC-design/HW5/ref/subBytes.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module subBytes
+
+Top level modules:
+	subBytes
 
 } {} {}}
